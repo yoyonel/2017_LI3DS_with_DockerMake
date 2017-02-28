@@ -19,3 +19,6 @@ docker_makefiles/
 
 # Volumes Docker utilisés par les applications (QtCreator, Sublime, ...)
 .volumes/
+
+#
+venv/
