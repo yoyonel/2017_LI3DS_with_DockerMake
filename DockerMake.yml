@@ -1,0 +1,84 @@
+# FROM: ubuntu:trusty  # same FROM from 'indigo-ros-core' image
+
+li3ds-ros:
+  FROM: ros:indigo-ros-core
+  build_directory: li3ds/ros
+  
+li3ds-base:
+  build_directory: li3ds/base
+  requires:
+    - li3ds-ros
+
+# urls:
+# - https://github.com/docker/docker/issues/5383
+li3ds-tools_base:
+  build_directory: li3ds/tools/base
+  requires:
+    - li3ds-base
+    
+li3ds-tools_shell:
+  requires:
+    - li3ds-tools_base
+  build_directory: li3ds/tools/shell
+
+li3ds-tools_shell-zsh:
+  requires:
+    - li3ds-tools_shell
+  build_directory: li3ds/tools/shell/zsh
+
+li3ds-tools_shell-tmux:
+  requires:
+    - li3ds-tools_shell
+  build_directory: li3ds/tools/shell/tmux
+
+# version build
+li3ds-tools_shell-tmux-build:
+  requires:
+    - li3ds-tools_shell
+  build_directory: li3ds/tools/shell/tmux/build
+
+li3ds-tools_monitor:
+  requires:
+    - li3ds-tools_shell
+  build_directory: li3ds/tools/monitor
+
+li3ds-tools_vim:
+  requires:
+    - li3ds-tools_shell
+  build_directory: li3ds/tools/vim
+    
+li3ds-tools_sublimetext3:
+  requires:
+    - li3ds-tools_shell
+  build_directory: li3ds/tools/sublimetext3
+
+# urls:
+# - https://bugzilla.redhat.com/show_bug.cgi?id=1290691
+li3ds-tools:
+  requires:
+    - li3ds-tools_sublimetext3
+    - li3ds-tools_vim
+    - li3ds-tools_monitor
+    - li3ds-tools_shell-zsh
+    - li3ds-tools_shell-tmux
+  build_directory: li3ds/tools
+
+li3ds-dev:
+  requires:
+    - li3ds-base
+  build_directory: li3ds/dev
+
+li3ds-dev_qtcreator:
+  requires:
+    - li3ds-dev
+  build_directory: li3ds/dev/qtcreator
+
+li3ds-prototype_base:
+  requires:
+    - li3ds-dev
+  build_directory: li3ds/prototype/base  
+
+li3ds-prototype_arduino:
+  requires:
+    - li3ds-prototype_base
+  build_directory: li3ds/prototype/arduino

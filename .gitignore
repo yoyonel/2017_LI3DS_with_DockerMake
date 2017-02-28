@@ -1,0 +1,21 @@
+#
+Dockerfile
+
+#
+buildargs.yml
+
+# ignore des submodules des autres branches [WIP]
+docs/
+
+#
+apt.conf
+#
+.gitconfig
+
+#
+dockerfile.fail
+#
+docker_makefiles/
+
+# Volumes Docker utilisés par les applications (QtCreator, Sublime, ...)
+.volumes/
