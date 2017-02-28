@@ -2,6 +2,10 @@
 
 xhost +
 
+if [ ! -d li3ds/.volumes/dev/qtcreator/.config ]; then
+	mkdir -p li3ds/.volumes/dev/qtcreator/.config
+fi
+
 # -e NEWUSER=$USER \
 docker run 	-it --rm \
 			--name qtcreator \

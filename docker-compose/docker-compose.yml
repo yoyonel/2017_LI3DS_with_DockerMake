@@ -59,8 +59,8 @@ networks:
     external:
       name: li3ds-prototype
 
-volumes:
-  li3ds-prototype_catkin_ws:
-    external: true
-  li3ds-prototype_overlay_ws:
-    external: true
+# volumes:
+#   li3ds-prototype_catkin_ws:
+#     external: true
+#   li3ds-prototype_overlay_ws:
+#     external: true

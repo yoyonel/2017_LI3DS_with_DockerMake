@@ -9,5 +9,3 @@ RUN apt-get -y install \
       locales \
       ca-certificates \
       software-properties-common  # for: add-apt-repository
-
-toto

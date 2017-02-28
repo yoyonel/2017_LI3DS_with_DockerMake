@@ -13,6 +13,8 @@ apt.conf
 dockerfile.fail
 #
 docker_makefiles/
+#
+_docker_make_tmp/
 
 # Volumes Docker utilisés par les applications (QtCreator, Sublime, ...)
 .volumes/
