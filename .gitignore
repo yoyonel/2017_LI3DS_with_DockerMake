@@ -1,7 +1,4 @@
 #
-Dockerfile
-
-#
 buildargs.yml
 
 # ignore des submodules des autres branches [WIP]
