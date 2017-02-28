@@ -68,12 +68,12 @@ li3ds-dev:
     - li3ds-base
   build_directory: li3ds/dev
 
-li3ds-dev_qtcreator:
-  requires:
-    - li3ds-dev
-  build_directory: li3ds/dev/qtcreator
-
 li3ds-prototype:
   requires:
     - li3ds-dev
   build_directory: li3ds/prototype
+
+li3ds-dev_qtcreator:
+  requires:
+    - li3ds-prototype
+  build_directory: li3ds/dev/qtcreator

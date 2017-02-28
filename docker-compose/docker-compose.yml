@@ -8,6 +8,9 @@ services:
     container_name: li3ds_ros
     hostname: li3ds_ros
 
+    networks: 
+      - li3ds
+
     ports:
       - "11311:11311"     # ros master
       - "2368:2368/udp"   # Data Port VLP-16 (by default)
@@ -19,11 +22,12 @@ services:
     volumes:
       - "/dev/bus/usb:/dev/bus/usb"
 
-    # url: http://stackoverflow.com/questions/36249744/interactive-shell-using-docker-compose
-    # stdin_open: true
-    # tty: true
+    # volumes:
+    #   - li3ds-prototype_catkin_ws:/root/catkin_ws
+    #   - li3ds-prototype_overlay_ws:/workspace/overlay
 
     command: /root/run.sh
+
 
   li3ds-prototype_shell:
     image: li3ds-prototype
@@ -38,6 +42,25 @@ services:
       - "ROS_HOSTNAME=li3ds_ros_shell"
       - "ROS_MASTER_URI=http://li3ds_ros:11311"
 
+    # volumes:
+    #   - li3ds-prototype_catkin_ws:/root/catkin_ws
+    #   - li3ds-prototype_overlay_ws:/workspace/overlay
+
     # url: http://stackoverflow.com/questions/36249744/interactive-shell-using-docker-compose
     stdin_open: true
     tty: true
+
+    command: bash
+
+
+# url: https://docs.docker.com/compose/networking/#using-a-pre-existing-network
+networks:
+  li3ds:
+    external:
+      name: li3ds-prototype
+
+volumes:
+  li3ds-prototype_catkin_ws:
+    external: true
+  li3ds-prototype_overlay_ws:
+    external: true

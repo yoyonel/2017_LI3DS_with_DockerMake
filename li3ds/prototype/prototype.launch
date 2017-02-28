@@ -5,8 +5,30 @@
 
 <launch>
 	<!-- LASER - VLP16 -->
-  <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch">
-  </include>
+	<group ns="laser">
+		<!-- ros_args.launch -->
+	  <arg name="VLP16_NETWORK_SENSOR_IP" default="172.20.0.191" doc="IP du sensor Velodyne VLP16"/>
+	  <arg name="model" default="VLP16" doc="Nom du modele du sensor"/>
+
+		<!--  -->	  
+	  <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
+
+	  <!-- rosrun velodyne_gps_imu gpsimu_driver -->
+	  <node pkg="velodyne_gps_imu" type="gpsimu_driver" name="gpsimu_driver"/>
+
+	  <!-- Server de DIAGNOSTICS (VLP16) -->
+	  <node pkg="velodyne_configuration" type="velodyne_diagnostics_server" name="velodyne_diagnostics_server">
+	  	<param name="VLP16_NETWORK_SENSOR_IP" value="$(arg VLP16_NETWORK_SENSOR_IP)"/>
+	  </node>
+
+	  <!-- Server de SETTINGS (VLP16) -->
+  	<node pkg="velodyne_configuration" type="velodyne_settings_server" name="velodyne_settings_server">
+  		<param name="VLP16_NETWORK_SENSOR_IP" value="$(arg VLP16_NETWORK_SENSOR_IP)"/>
+  	</node>
+
+  	<!-- Server de STATUS (VLP16) déjà lancé/utilisé par VLP16_points.launch -->
+  	
+	</group>
 
   <!-- INS - SBG ELLIPSE-N -->
   <include file="$(find sbg_driver)/launch/ELLIPSE_N.launch">
