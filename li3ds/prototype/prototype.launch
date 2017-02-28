@@ -1,0 +1,26 @@
+<!-- -*- mode: XML -*- -->
+<!-- start 
+     $Id$
+  -->
+
+<launch>
+	<!-- LASER - VLP16 -->
+  <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch">
+  </include>
+
+  <!-- INS - SBG ELLIPSE-N -->
+  <include file="$(find sbg_driver)/launch/ELLIPSE_N.launch">
+  </include>
+
+	<!-- ARDUINO -->
+	<!-- rosserial_python serial_node.py /dev/ttyACM0 _baud:=115200 -->
+  <arg name="port" default="/dev/ttyACM0" />
+  <arg name="baud" default="115200" />
+  <!-- url: http://answers.ros.org/question/55232/rosrun-rosserial_python-serial_nodepy/ -->
+  <!-- url http://wiki.ros.org/rosserial_python -->
+	<node pkg="rosserial_python" type="serial_node.py" name="serial_node" respawn="true">
+		<param name="~port" value="$(arg port)" />
+		<param name="~baud" value="$(arg baud)" />
+	</node>
+
+</launch>
