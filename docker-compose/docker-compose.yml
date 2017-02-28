@@ -3,7 +3,7 @@ version: '3'
 services:
 
   li3ds-prototype:
-    image: li3ds-prototype_base
+    image: li3ds-prototype
 
     container_name: li3ds_ros
     hostname: li3ds_ros
@@ -13,15 +13,31 @@ services:
       - "2368:2368/udp"   # Data Port VLP-16 (by default)
       - "8308:8308/udp"   # Telemetry Port VLP-16 (by default)
 
-    # ARDUINO
-    devices:
-      - "/dev/ttyACM0:/dev/ttyACM0"
+    # ARDUINO    
+    # INS
+    privileged: true
+    volumes:
+      - "/dev/bus/usb:/dev/bus/usb"
 
-    # # INS
-    # privileged: true
-    # volumes:
-    #   - "/dev/bus/usb:/dev/bus/usb"
+    # url: http://stackoverflow.com/questions/36249744/interactive-shell-using-docker-compose
+    # stdin_open: true
+    # tty: true
 
+    command: /root/run.sh
+
+  li3ds-prototype_shell:
+    image: li3ds-prototype
+
+    depends_on:
+      - "li3ds-prototype"
+
+    container_name: li3ds_ros_shell
+    hostname: li3ds_ros_shell
+
+    environment:
+      - "ROS_HOSTNAME=li3ds_ros_shell"
+      - "ROS_MASTER_URI=http://li3ds_ros:11311"
+
+    # url: http://stackoverflow.com/questions/36249744/interactive-shell-using-docker-compose
     stdin_open: true
     tty: true
-    command: bash
