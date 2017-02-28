@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  li3ds-prototype:
+    image: li3ds-prototype_base
+
+    container_name: li3ds_ros
+    hostname: li3ds_ros
+
+    ports:
+      - "11311:11311"     # ros master
+      - "2368:2368/udp"   # Data Port VLP-16 (by default)
+      - "8308:8308/udp"   # Telemetry Port VLP-16 (by default)
+
+    # ARDUINO
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+
+    # # INS
+    # privileged: true
+    # volumes:
+    #   - "/dev/bus/usb:/dev/bus/usb"
+
+    stdin_open: true
+    tty: true
+    command: bash

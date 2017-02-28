@@ -1,0 +1,92 @@
+version: '3'
+# version de docker-compose utilise
+
+# urls:
+# - https://docs.docker.com/compose/compose-file/#volume-configuration-reference
+# - https://www.linux.com/learn/docker-volumes-and-networks-compose
+
+services:
+
+  ros_master:
+    image: ros:indigo-ros-core
+
+    container_name: rosnode_master
+    hostname: rosmaster
+
+    ports:
+      - "11311:11311"
+    command:
+        - roscore
+
+  # Definition du ROS Node pour l'Arduino
+  ros_li3ds_arduino:
+    container_name: rosnode_li3ds_arduino
+    hostname: ros_li3ds_arduino
+
+    image: li3ds/arduino:latest
+
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+
+    depends_on:
+      - "ros_master"
+
+    environment:
+      - "ROS_HOSTNAME=ros_li3ds_arduino"
+      - "ROS_MASTER_URI=http://ros_master:11311"
+
+    command: rosrun rosserial_python serial_node.py /dev/ttyACM0 _baud:=115200
+
+  ros_li3ds_ins:
+    container_name: rosnode_li3ds_ins
+    hostname: ros_li3ds_ins
+
+    image: li3ds/ins:latest
+
+    #devices:
+    #  - "/dev/ttyUSB0:/dev/ttyUSB0"
+    #
+    privileged: true
+    volumes:
+      - "/dev/bus/usb:/dev/bus/usb"
+
+    depends_on:
+      - "ros_master"
+
+    environment:
+      - "ROS_HOSTNAME=rosnode_li3ds_ins"
+      - "ROS_MASTER_URI=http://ros_master:11311"
+    
+    volumes:
+      - li3ds_catkin_ws:/catkin_ws
+
+    command: /root/run.sh
+
+  ros_li3ds_laser:
+    container_name: rosnode_li3ds_laser
+    hostname: ros_li3ds_laser
+
+    image: li3ds/laser:latest
+
+    depends_on:
+      - "ros_master"
+
+    ports:
+      - "2368:2368/udp"   # Data Port VLP-16 (by default)
+      - "8308:8308/udp"   # Telemetry Port VLP-16 (by default)
+
+    environment:
+      - "ROS_HOSTNAME=rosnode_li3ds_laser"
+      - "ROS_MASTER_URI=http://ros_master:11311"
+    
+    volumes:
+      - li3ds_catkin_ws:/catkin_ws
+
+    command: /root/run.sh
+
+
+# url: https://docs.docker.com/compose/compose-file/
+# -> external
+volumes:
+  li3ds_catkin_ws:
+    external: true

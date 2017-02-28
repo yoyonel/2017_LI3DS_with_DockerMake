@@ -1,0 +1,48 @@
+version: '3'
+# version de docker-compose utilise
+
+# urls:
+# - https://docs.docker.com/compose/compose-file/#volume-configuration-reference
+# - https://www.linux.com/learn/docker-volumes-and-networks-compose
+
+services:
+
+  ros_master:
+    image: ros:indigo-ros-core
+
+    container_name: rosnode_master
+    hostname: rosmaster
+
+    ports:
+      - "11311:11311"
+    command:
+        - roscore
+
+  # Definition du ROS Node pour l'Arduino
+  ros_li3ds_arduino:
+    container_name: rosnode_li3ds_arduino
+    hostname: ros_li3ds_arduino
+
+    image: li3ds/arduino-dev
+
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+
+    depends_on:
+      - "ros_master"
+
+    environment:
+      - "ROS_HOSTNAME=ros_li3ds_arduino"
+      - "ROS_MASTER_URI=http://ros_master:11311"
+
+    volumes:
+      - li3ds_dev_catkin_ws:/root/catkin_ws
+
+    command: /root/run.sh
+
+
+# url: https://docs.docker.com/compose/compose-file/
+# -> external
+volumes:
+  li3ds_dev_catkin_ws:
+    external: true
