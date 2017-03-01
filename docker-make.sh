@@ -10,7 +10,7 @@ else
 		source venv/bin/activate
 	else
 		echo "create virtualenv: venv with python2.7"
-		virtualenv -p /usr/bin/python2.7 venv
+		virtualenv --no-site-packages -p /usr/bin/python2.7 venv
 		echo "activate virtualenv: venv"
 		source venv/bin/activate
 		echo "-> install requirements"
