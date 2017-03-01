@@ -12,7 +12,7 @@ ADD configure_overlay_ws.sh .
 ADD rosdep.sh .
 ADD configure_catkin_ws.sh . 
 #
-RUN sh configure.sh .
+# RUN sh configure.sh .
 
 ADD build.sh /root/build.sh
 RUN chmod +x /root/build.sh
@@ -22,9 +22,9 @@ ADD run.sh /root/run.sh
 ADD edit.sh /root/edit.sh
 RUN chmod +x /root/run.sh /root/edit.sh
 
-# # VOLUMES
-VOLUME ["${ROS_OVERLAY_WS}"]
-VOLUME ["${ROS_CATKIN_WS}"]
+# VOLUMES
+# VOLUME ["${ROS_OVERLAY_WS}"]
+# VOLUME ["${ROS_CATKIN_WS}"]
 
 # CMD ["/root/run.sh"]
 # ENTRYPOINT ["/ros_entrypoint.sh"]
