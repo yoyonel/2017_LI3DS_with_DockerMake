@@ -20,7 +20,7 @@ RUN chmod +x /root/build.sh
 ADD prototype.launch /root/prototype.launch
 ADD run.sh /root/run.sh
 ADD edit.sh /root/edit.sh
-RUN chmod +x /root/run.sh /root/edit.sh
+# RUN chmod +x /root/run.sh /root/edit.sh
 
 # VOLUMES
 # VOLUME ["${ROS_OVERLAY_WS}"]
