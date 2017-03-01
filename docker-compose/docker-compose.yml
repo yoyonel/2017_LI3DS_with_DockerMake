@@ -29,28 +29,28 @@ services:
     command: /root/run.sh
 
 
-  li3ds-prototype_shell:
-    image: li3ds-prototype
+  # li3ds-prototype_shell:
+  #   image: li3ds-prototype
 
-    depends_on:
-      - "li3ds-prototype"
+  #   depends_on:
+  #     - "li3ds-prototype"
 
-    container_name: li3ds_ros_shell
-    hostname: li3ds_ros_shell
+  #   container_name: li3ds_ros_shell
+  #   hostname: li3ds_ros_shell
 
-    environment:
-      - "ROS_HOSTNAME=li3ds_ros_shell"
-      - "ROS_MASTER_URI=http://li3ds_ros:11311"
+  #   environment:
+  #     - "ROS_HOSTNAME=li3ds_ros_shell"
+  #     - "ROS_MASTER_URI=http://li3ds_ros:11311"
 
-    # volumes:
-    #   - li3ds-prototype_catkin_ws:/root/catkin_ws
-    #   - li3ds-prototype_overlay_ws:/workspace/overlay
+  #   # volumes:
+  #   #   - li3ds-prototype_catkin_ws:/root/catkin_ws
+  #   #   - li3ds-prototype_overlay_ws:/workspace/overlay
 
-    # url: http://stackoverflow.com/questions/36249744/interactive-shell-using-docker-compose
-    stdin_open: true
-    tty: true
+  #   # url: http://stackoverflow.com/questions/36249744/interactive-shell-using-docker-compose
+  #   stdin_open: true
+  #   tty: true
 
-    command: bash
+  #   command: bash
 
 
 # url: https://docs.docker.com/compose/networking/#using-a-pre-existing-network
