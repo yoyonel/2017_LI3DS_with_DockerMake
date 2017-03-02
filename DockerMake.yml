@@ -73,6 +73,11 @@ li3ds-prototype:
     - li3ds-dev
   build_directory: li3ds/prototype
 
+li3ds-prototype_docker:
+  requires:
+    - li3ds-prototype
+  build_directory: li3ds/pipeline
+
 li3ds-dev_qtcreator:
   requires:
     - li3ds-prototype

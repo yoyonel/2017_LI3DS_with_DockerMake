@@ -22,7 +22,8 @@ ADD run.sh /root/run.sh
 ADD edit.sh /root/edit.sh
 # RUN chmod +x /root/run.sh /root/edit.sh
 
-# VOLUMES
+RUN mkdir -p ${ROS_OVERLAY_WS} ${ROS_CATKIN_WS}
+# # VOLUMES
 # VOLUME ["${ROS_OVERLAY_WS}"]
 # VOLUME ["${ROS_CATKIN_WS}"]
 

@@ -20,8 +20,10 @@ else
 	# su $NEWUSER -c "LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 /usr/src/sublime_text/sublime_text -w"
 fi
 
-chown -R $NEWUSER:$NEWUSER ${ROS_OVERLAY_WS}
-chown -R $NEWUSER:$NEWUSER ${ROS_CATKIN_WS}
+chown -R --no-dereference $NEWUSER:$NEWUSER ${ROS_OVERLAY_WS}
 
-ln -fs ${ROS_OVERLAY_WS}/* 	/workspace/overlay
+chmod -R 700 ${ROS_CATKIN_WS}
+chown -R --no-dereference $NEWUSER:$NEWUSER ${ROS_CATKIN_WS}
+
+# ln -fs ${ROS_OVERLAY_WS}/* 	/workspace/overlay
 # ln -fs ${ROS_CATKIN_WS}/*	/workspace/catkin
