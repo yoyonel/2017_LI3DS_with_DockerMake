@@ -9,7 +9,8 @@ PROJECT_IMAGE_FROM="li3ds-prototype_docker"
 PROJECT_IMAGE_TO="$PROJECT_IMAGE_TO_BASE:$PROJECT_SHA256"
 
 echo_w "Try to create a new image"
-echo_i "-> from ${RED}$PROJECT_IMAGE_FROM to ${RED}$PROJECT_IMAGE_TO"
+echo_w "From:	${RED}$PROJECT_IMAGE_FROM"
+echo_w "To:		${RED}$PROJECT_IMAGE_TO"
 
 docker	run 	\
 	-it --rm	\
@@ -19,7 +20,7 @@ docker	run 	\
 	-v $PATH_TO_OVERLAY_WS_VOLUME:/root/overlay_ws \
 	-v $PATH_TO_CATKIN_WS_VOLUME:/root/catkin_ws \
 	-e NEWUSER=$USER \
-	PROJECT_IMAGE_FROM \
+	$PROJECT_IMAGE_FROM \
 	bash -c \
 		'
 		cp -r /root/project/overlay_ws /root/.; \
@@ -29,7 +30,6 @@ docker	run 	\
 		docker commit li3ds-prototype_step1 li3ds-prototype:$PROJECT_SHA256
 		'
 
-echo_w "New image created"
-echo_i "-> ${GREEN}${BOLD}$PROJECT_IMAGE_TO"
+echo_w "New image created -> ${GREEN}${BOLD}$PROJECT_IMAGE_TO"
 
 echo_i "${GREEN}${BOLD}Done"
