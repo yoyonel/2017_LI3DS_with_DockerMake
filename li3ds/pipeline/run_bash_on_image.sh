@@ -12,6 +12,6 @@ docker	run												\
 		-v $PATH_TO_OVERLAY_WS_VOLUME:/root/overlay_ws 	\
 		-v $PATH_TO_CATKIN_WS_VOLUME:/root/catkin_ws 	\
 		$PROJECT_IMAGE_TO		 						\
-		build.sh
+		bash
 
 echo_i "${GREEN}${BOLD}Done"

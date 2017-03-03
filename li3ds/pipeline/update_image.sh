@@ -18,22 +18,14 @@ docker	run 	\
 	-it --rm	\
 	--name li3ds-prototype_step1	\
 	-v $(realpath $1):/root/project/ \
+	-v $(realpath scripts):/root/scripts \
 	-v $PATH_TO_OVERLAY_WS_VOLUME:/root/overlay_ws \
 	-v $PATH_TO_CATKIN_WS_VOLUME:/root/catkin_ws \
 	-e NEWUSER=$USER \
 	$PROJECT_IMAGE_TO \
-	bash -c \
-		'
-		if [ -d ${ROS_OVERLAY_WS}/src ]; then	\
-			cd ${ROS_OVERLAY_WS}/src;			\
-			wstool update;						\
-		else									\
-			echo "unsynch between ${ROS_OVERLAY_WS} and /root/project/ !!!"; \
-			echo "transfer project sources to overlay workspace !"; \
-			cp -r /root/project/overlay_ws/* ${ROS_OVERLAY_WS}; \
-		fi \
-		'
+	update_image.sh
 
-echo_i "Image updated: ${GREEN}${BOLD}$PROJECT_IMAGE_TO"
-
+if [ ! $? ]; then
+	echo_i "Image updated: ${GREEN}${BOLD}$PROJECT_IMAGE_TO"
+fi
 echo_i "${GREEN}${BOLD}Done"

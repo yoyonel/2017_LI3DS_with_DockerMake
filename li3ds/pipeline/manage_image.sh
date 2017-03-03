@@ -8,14 +8,11 @@
 
 source env_for_project.sh $1
 
-#
-echo_w "Manage mountpoints"
-./create_volumes.sh $1
-
 if docker images | grep -q $PROJECT_SHA256; then
 	echo_i "Image already exist: ${RED}li3ds-prototype:$PROJECT_SHA256"
 	./update_image.sh $1
 else
+	echo_i "Create Image: ${RED}li3ds-prototype:$PROJECT_SHA256"
 	./create_image.sh $1
 fi
 
