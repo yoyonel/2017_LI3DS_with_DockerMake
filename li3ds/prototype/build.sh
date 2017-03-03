@@ -4,6 +4,6 @@ set -e
 
 cd $ROS_CATKIN_WS
 
-catkin build
+catkin build --cmake-args -Wno-dev
 
 cd -
