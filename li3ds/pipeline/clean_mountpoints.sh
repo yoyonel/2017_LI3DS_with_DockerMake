@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source bash_tools.sh
+
 PROJECT_NAME=$1
 
 echo " Project name: $PROJECT_NAME"
