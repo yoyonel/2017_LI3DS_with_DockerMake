@@ -1,8 +1,6 @@
 #!/bin/bash
 
-if [ -d ${ROS_OVERLAY_WS}/src ]; then
-	cd ${ROS_OVERLAY_WS}/src;
-else
+if [ ! -d ${ROS_OVERLAY_WS}/src ]; then
 	echo "Cant find directory: ${ROS_OVERLAY_WS}/src"
 	mkdir -p ${ROS_OVERLAY_WS}/src
 	
@@ -16,5 +14,7 @@ else
 		exit -1;
 	fi
 fi
+
+cd ${ROS_OVERLAY_WS}/src;
 
 wstool update;
