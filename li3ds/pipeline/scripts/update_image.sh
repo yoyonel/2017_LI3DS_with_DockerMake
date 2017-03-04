@@ -1,8 +1,6 @@
 #!/bin/bash
 
-if [ -d ${ROS_OVERLAY_WS}/src ]; then
-	cd ${ROS_OVERLAY_WS}/src;
-else
+if [ ! -d ${ROS_OVERLAY_WS}/src ]; then
 	echo "Cant find directory: ${ROS_OVERLAY_WS}/src"
 	mkdir -p ${ROS_OVERLAY_WS}/src
 	
@@ -13,8 +11,10 @@ else
 		cp $PROJECT_SRC_PATH/.rosinstall ${ROS_OVERLAY_WS}/src/.rosinstall
 	else
 		echo "Can't update source ! (exit)"
-		exit -1;
+		exit -1
 	fi
 fi
+
+cd ${ROS_OVERLAY_WS}/src
 
 wstool update;
