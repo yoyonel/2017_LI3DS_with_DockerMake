@@ -2,7 +2,9 @@
 
 # set -e 
 
-cp -r /root/project/overlay_ws /root/.
+# cp -r /root/project/overlay_ws /root/.
+
+synchronize_overlay_ws.sh
 
 rosdep.sh;
 

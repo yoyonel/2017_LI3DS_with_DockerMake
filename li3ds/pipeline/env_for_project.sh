@@ -24,5 +24,4 @@ if [ -f $PROJECT_NAME/sha256.txt ]; then
 else
 	echo_i "Can't find ${RED}$PROJECT_NAME/sha256.txt"
 	echo_i "Need a SHA256 id for the project (see ${GREEN}generate_sha256.sh${CYAN}) "
-	exit -1
 fi

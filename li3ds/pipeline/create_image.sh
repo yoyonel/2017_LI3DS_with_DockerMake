@@ -16,6 +16,9 @@ echo_w "To:		${RED}$PROJECT_IMAGE_TO"
 mkdir -p $PATH_TO_CATKIN_WS_VOLUME
 mkdir -p $PATH_TO_OVERLAY_WS_VOLUME
 
+# Copying overlay_ws from project to overlay workspace
+cp $1/overlay_ws $PATH_TO_OVERLAY_WS_VOLUME/overlay_ws
+
 # -v $PATH_TO_OVERLAY_WS_VOLUME:/root/overlay_ws \
 docker	run 	\
 	-it --rm	\
