@@ -8,7 +8,7 @@ QTCREATOR=/usr/bin/qtcreator
 
 if [ -z ${NEWUSER+x} ]; then
 	echo 'WARN: No user was defined, defaulting to root.'
-	echo 'WARN: Sublime will save files as root:root.'
+	echo 'WARN: QtCreator will save files as root:root.'
 	echo '      To prevent this, start the container with -e NEWUSER=$USER'	
 
 	LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 										\
@@ -50,7 +50,7 @@ else
 	# "-a /home/$NEWUSER/Documents" (without quotes) into the su -c command below.
 	# Example: su $NEWUSER -c "/usr/src/sublime_text/sublime_text -w -a /home/$NEWUSER/Documents"
 	su $NEWUSER -c "LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 \
-		QTCREATOR \
+		$QTCREATOR \
 			-noload Welcome \
 			-noload QmlDesigner \
 			-noload QmlProfiler \

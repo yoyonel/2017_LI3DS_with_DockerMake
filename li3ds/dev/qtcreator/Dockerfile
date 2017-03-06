@@ -36,10 +36,11 @@ COPY .config /root/.config
 RUN dbus-uuidgen > /var/lib/dbus/machine-id
 
 # COPY qtcreator-4.2.1 /root/qtcreator-4.2.1
-COPY run.sh /run.sh
-RUN chmod +x /run.sh
+COPY run.sh /launch_qtcreator.sh
+RUN chmod +x /launch_qtcreator.sh
+
 COPY entry-point.sh /entry-point.sh
 RUN chmod +x /entry-point.sh
 
 ENTRYPOINT ["/entry-point.sh"]
-CMD ["/run.sh"]
+CMD ["/launch_qtcreator.sh"]

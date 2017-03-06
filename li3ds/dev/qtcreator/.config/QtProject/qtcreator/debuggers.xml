@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE QtCreatorDebuggers>
-<!-- Written by QtCreator 4.2.1, 2017-02-26T00:08:26. -->
+<!DOCTYPE QtCreatorDebugger>
+<!-- Written by QtCreator 3.0.1, 2017-03-06T16:31:44. -->
 <qtcreator>
  <data>
   <variable>DebuggerItem.0</variable>
@@ -9,14 +9,10 @@
     <value type="QString">x86-linux-generic-elf-64bit</value>
    </valuelist>
    <value type="bool" key="AutoDetected">true</value>
-   <value type="QString" key="AutoDetectionSource"></value>
    <value type="QString" key="Binary">/usr/bin/gdb</value>
    <value type="QString" key="DisplayName">System GDB at /usr/bin/gdb</value>
    <value type="int" key="EngineType">1</value>
    <value type="QString" key="Id">{02beba65-2f4c-487f-b505-df0006e59fe3}</value>
-   <value type="QDateTime" key="LastModified">2014-10-30T18:47:22</value>
-   <value type="QString" key="Version">7.7.1</value>
-   <value type="QString" key="WorkingDirectory"></value>
   </valuemap>
  </data>
  <data>
