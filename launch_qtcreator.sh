@@ -13,6 +13,6 @@ docker run 	-it --rm 															\
             -e DISPLAY=$DISPLAY 												\
             -v /tmp/.X11-unix:/tmp/.X11-unix 									\
             --security-opt seccomp=unconfined 									\
-            -v $(realpath li3ds/.volumes/dev/qtcreator/.config):/home/.config 	\
+            -v $(realpath li3ds/.volumes/dev/qtcreator/.config):/root/.config 	\
             --volumes-from li3ds_ros 											\
             li3ds-dev_qtcreator $@
