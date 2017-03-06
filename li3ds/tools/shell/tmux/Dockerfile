@@ -11,6 +11,7 @@ RUN apt-get -y install \
   # && apt-get clean \
   # && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN echo 'set -g default-terminal "screen-256color"' >> .tmux.conf
+# RUN echo 'set -g default-terminal "screen-256color"' >> .tmux.conf
+COPY .tmux.conf /root/.tmux.conf
 
 CMD ["tmux"]
