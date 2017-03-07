@@ -1,5 +1,11 @@
 #
 overlay_ws
 
+#
+.config
+
+#
+records
+
 # QtCreator configs
 QtCreator/.config
