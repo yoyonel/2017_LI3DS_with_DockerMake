@@ -1,0 +1,42 @@
+version: '3.0'
+
+services:
+
+  li3ds-prototype_tmux:
+    image: "${PROJECT_IMAGE_TO}"
+
+    container_name: li3ds_ros
+    hostname: li3ds_ros
+
+    networks: 
+      - li3ds
+
+    ports:
+      - "11311:11311"     # ros master
+      - "2368:2368/udp"   # Data Port VLP-16 (by default)
+      - "8308:8308/udp"   # Telemetry Port VLP-16 (by default)
+
+    # ARDUINO    
+    # INS
+    privileged: true
+    volumes:
+      - "/dev/bus/usb:/dev/bus/usb"
+
+    volumes:
+    #   - ${PATH_TO_OVERLAY_WS_VOLUME}:/root/overlay_ws
+    #   - ${PATH_TO_CATKIN_WS_VOLUME}:/root/catkin_ws
+      - ./project1:/root/config2
+
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
+    stdin_open: true
+    tty: true
+
+# url: https://docs.docker.com/compose/networking/#using-a-pre-existing-network
+networks:
+  li3ds:
+    external:
+      name: li3ds-prototype

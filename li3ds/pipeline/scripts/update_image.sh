@@ -25,4 +25,6 @@ cd ${ROS_OVERLAY_WS}/src
 echo_i "wstool update ..."
 wstool update
 
+configure_catkin_ws.sh
+
 echo_i "${GREEN}${BOLD}Done"
