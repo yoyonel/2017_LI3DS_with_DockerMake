@@ -16,6 +16,9 @@ OPTIONS_FOR_X11="
             -v /tmp/.X11-unix:/tmp/.X11-unix:rw	\
 "
 
+if [ ! -d $1/.config ]; then
+	mkdir -p $1/.config
+fi
 OPTIONS_FOR_QTCREATOR="
             -v $(realpath $1/.config):/root/.config	\
             --security-opt seccomp=unconfined 		\
