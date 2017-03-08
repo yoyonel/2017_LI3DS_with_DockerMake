@@ -1,3 +1,3 @@
 [submodule "DockerMake"]
 	path = DockerMake
-	url = git@github.com:yoyonel/DockerMake.git
+	url = https://github.com/yoyonel/DockerMake.git
