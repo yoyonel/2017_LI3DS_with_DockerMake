@@ -1,7 +1,7 @@
 # Pour générer un sha du projet
 RUN apt-get install -y 		\
 	tree 					\
-	ros-indigo-rqt_graph	\
+	ros-indigo-rqt-graph
 
 USER root
 WORKDIR /root
