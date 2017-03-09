@@ -13,22 +13,29 @@ echo_w "From:	${RED}$PROJECT_IMAGE_FROM"
 echo_w "To:		${RED}$PROJECT_IMAGE_TO"
 
 # Create mountpoints with user right
-mkdir -p $PATH_TO_CATKIN_WS_VOLUME
-mkdir -p $PATH_TO_OVERLAY_WS_VOLUME
+if [ -d $PATH_TO_CATKIN_WS_VOLUME ]; then
+	mkdir -p $PATH_TO_CATKIN_WS_VOLUME
+fi
+if [ -d $PATH_TO_OVERLAY_WS_VOLUME ]; then
+	mkdir -p $PATH_TO_OVERLAY_WS_VOLUME
+fi
 
-# Copying overlay_ws from project to overlay workspace
-cp $1/overlay_ws $PATH_TO_OVERLAY_WS_VOLUME/overlay_ws
+# # Copying overlay_ws from project to overlay workspace
+# echo_i "Copy (host side) overlay workspace ..."
+# echo_i "${GREEN}$1/overlay_ws ${CYAN}to ${GREEN}$PATH_TO_OVERLAY_WS_VOLUME/overlay_ws"
+# cp $1/overlay_ws $PATH_TO_OVERLAY_WS_VOLUME/overlay_ws
 
 # -v $PATH_TO_OVERLAY_WS_VOLUME:/root/overlay_ws \
-docker	run 	\
-	-it --rm	\
-	--name li3ds-prototype_step1	\
+docker	run 										\
+	-it --rm										\
+	--name li3ds-prototype_step1					\
 	-v /var/run/docker.sock:/var/run/docker.sock	\
-	-v $(realpath scripts):/root/scripts \
-	-v $(realpath $PROJECT_NAME):/root/project \
-	-v $PATH_TO_CATKIN_WS_VOLUME:/root/catkin_ws \
-	-e NEWUSER=$USER \
-	$PROJECT_IMAGE_FROM \
+	-v $(realpath scripts):/root/scripts 			\
+	-v $(realpath $PROJECT_NAME):/root/project 		\
+	-v $PATH_TO_OVERLAY_WS_VOLUME:/root/overlay_ws 	\
+	-v $PATH_TO_CATKIN_WS_VOLUME:/root/catkin_ws 	\
+	-e NEWUSER=$USER 								\
+	$PROJECT_IMAGE_FROM 							\
 	create_image.sh
 		
 if [ ! $? ]; then
