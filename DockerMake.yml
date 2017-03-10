@@ -1,7 +1,8 @@
 # FROM: ubuntu:trusty  # same FROM from 'indigo-ros-core' image
 
 li3ds-ros:
-  FROM: ros:indigo-ros-core
+  # FROM: ros:indigo-ros-core
+  FROM: ros:indigo-ros-base
   build_directory: li3ds/ros
   
 li3ds-base:

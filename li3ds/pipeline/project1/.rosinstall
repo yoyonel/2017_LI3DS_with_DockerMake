@@ -3,6 +3,9 @@
     local-name: ros_arduino
     uri: https://github.com/yoyonel/li3ds-ros_arduino.git
 - git:
+    local-name: ros_rqt_plugin
+    uri: https://github.com/yoyonel/li3ds-ros_rqt.git
+- git:
     local-name: ros_velodyne
     uri: https://github.com/yoyonel/ros_velodyne.git
 - git:
@@ -11,6 +14,3 @@
 - git:
     local-name: sbg_ros_driver
     uri: https://github.com/yoyonel/sbg_ros_driver.git
-- git:
-	local-name: ros_rqt_plugin
-	uri: git@github.com:yoyonel/li3ds-ros_rqt.git

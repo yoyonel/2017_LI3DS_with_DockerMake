@@ -1,5 +1,6 @@
-RUN apt-get -y install \
-  build-essential
+RUN apt-get -y install	\
+  		build-essential	\
+  		clang
 
 ### CMAKE
 ADD cmake-3.8.0-rc1.tar.Z /cmake-3.8.0-rc1.tar.Z
