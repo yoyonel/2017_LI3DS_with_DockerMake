@@ -36,7 +36,7 @@ docker	run 										\
 	-v $PATH_TO_CATKIN_WS_VOLUME:/root/catkin_ws 	\
 	-e NEWUSER=$USER 								\
 	$PROJECT_IMAGE_FROM 							\
-	create_image.sh
+	bash
 		
 if [ ! $? ]; then
 	echo_w "New image created -> ${GREEN}${BOLD}$PROJECT_IMAGE_TO"

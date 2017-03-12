@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import rospy
-from ros_arduino.msg import gps
+from sbg_driver.msg import gps
 
 
 def talker():
