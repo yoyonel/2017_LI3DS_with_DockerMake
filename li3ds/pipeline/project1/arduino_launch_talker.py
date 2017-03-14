@@ -2,7 +2,7 @@
 """arduino_launch_talker
 
 Usage:
-  arduino_launch_talker.py  [--rate=N]
+  arduino_launch_talker.py  [--rate=N] [--topic=TOPIC]
                             [--t2=N] [--t3=N] [--t4=N]
                             [--flash_on | --flash_off]
                             [--start_on | --start_off]
@@ -15,6 +15,8 @@ Options:
   --version             show version
   --rate=N              Frequence du message ROS (en Hz)
                         [default: 1.00]
+  --topic=TOPIC         Topic name for ROS pusblisher
+                        [default: /Arduino/commands]
   --t2=<seconds>        Seconds
                         [default: 59]
   --t3=<minutes>        Minutes
@@ -38,17 +40,22 @@ except ImportError:
          'https://github.com/halst/schema')
 
 import rospy
-from sbg_driver.msg import gps
+# from sbg_driver.msg import gps
+from ros_arduino.msg import commands
 
 
 def talker(**kwargs):
-    pub = rospy.Publisher('/Arduino/gps', gps, queue_size=2)
+    topic = kwargs.get('--topic', '/Arduino/commands')
+    # pub = rospy.Publisher(topic, gps, queue_size=2)
+    pub = rospy.Publisher(topic, commands, queue_size=2)
 
     rospy.init_node('custom_talker', anonymous=True)
 
     # r = rospy.Rate(kwargs.get('--rate', 1))
 
-    msg = gps()
+    # msg = gps()
+    msg = commands()
+    #
     msg.t2_t3_t4 = [
         kwargs.get('--t2', 59),
         kwargs.get('--t3', 59),
@@ -75,14 +82,15 @@ if __name__ == '__main__':
         version='1.0.0'
     )
 
+    # TODO: il faudrait verifier que le topic transmis en argument
+    # soit un topic (subscriber) actif ROS.
     schema = Schema({
         '--help': Or(None, And(Use(bool), lambda n: True)),
         '--version': Or(None, And(Use(bool), lambda n: True)),
-        # 'ros': Or(None, And(Use(bool), lambda n: True)),
-        # 'clock': Or(None, And(Use(bool), lambda n: True)),
-        # 'state': Or(None, And(Use(bool), lambda n: True)),
         '--rate': Or(None, And(Use(float), lambda n: 0.0 <= n < 100.0),
                      error='--rate=N should be float 0.0 <= N <= 100.0'),
+        '--topic': Or(None, And(Use(str), lambda n: True),
+                      error='--topic=TOPIC should be string of ROS topic'),
         '--t2': Or(None, And(Use(int), lambda n: 0 <= n < 60),
                    error='--t2=N should be integer 0 <= N < 60'),
         '--t3': Or(None, And(Use(int), lambda n: 0 <= n < 60),
