@@ -17,12 +17,9 @@ Options:
                         [default: 1.00]
   --topic=TOPIC         Topic name for ROS pusblisher
                         [default: /Arduino/commands]
-  --t2=<seconds>        Seconds
-                        [default: 59]
-  --t3=<minutes>        Minutes
-                        [default: 59]
+  --t2=<seconds>        Seconds                    
+  --t3=<minutes>        Minutes                      
   --t4=<hours>          Hours
-                        [default: 23]
   --flash_off           LEDs    off
   --flash_on            LEDs    on
   --start_off           Start   off
@@ -57,11 +54,18 @@ def talker(**kwargs):
     # msg = gps()
     msg = commands()
     #
-    msg.t2_t3_t4 = [
-        kwargs.get('--t2', 59),
-        kwargs.get('--t3', 59),
-        kwargs.get('--t4', 23)
-    ]
+    update_clock = bool(
+        sum([(key in kwargs and (kwargs[key] is not None)) for key in ('--t2', '--t3', '--t4')]))
+    msg.update_clock = update_clock
+    #
+    if update_clock:
+      msg.t2_t3_t4 = [
+          kwargs['--t2'] if kwargs['--t2'] else 59,
+          kwargs['--t3'] if kwargs['--t3'] else 59,
+          kwargs['--t4'] if kwargs['--t4'] else 23,
+      ]
+    else:
+      msg.t2_t3_t4 = [0, 0, 0]
     # msg.gprmc_pos = "Message NMEA"
 
     # # States
@@ -92,11 +96,11 @@ if __name__ == '__main__':
                      error='--rate=N should be float 0.0 <= N <= 100.0'),
         '--topic': Or(None, And(Use(str), lambda n: True),
                       error='--topic=TOPIC should be string of ROS topic'),
-        '--t2': Or(None, And(Use(int), lambda n: 0 <= n < 60),
+        '--t2': Or(None, And(Use(int) or None, lambda n: 0 <= n < 60),
                    error='--t2=N should be integer 0 <= N < 60'),
-        '--t3': Or(None, And(Use(int), lambda n: 0 <= n < 60),
+        '--t3': Or(None, And(Use(int) or None, lambda n: 0 <= n < 60),
                    error='--t3=N should be integer 0 <= N < 60'),
-        '--t4': Or(None, And(Use(int), lambda n: 0 <= n < 24),
+        '--t4': Or(None, And(Use(int) or None, lambda n: 0 <= n < 24),
                    error='--t4=N should be integer 0 <= N < 24'),
         '--flash_on': Or(None, And(Use(bool), lambda n: True)),
         '--flash_off': Or(None, And(Use(bool), lambda n: True)),
