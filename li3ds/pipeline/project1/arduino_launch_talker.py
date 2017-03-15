@@ -41,7 +41,8 @@ except ImportError:
 
 import rospy
 # from sbg_driver.msg import gps
-from ros_arduino.msg import commands
+# from ros_arduino.msg import commands
+from arduino_msgs.msg import commands
 
 
 def talker(**kwargs):
