@@ -3,6 +3,9 @@
     local-name: ros_arduino
     uri: https://github.com/yoyonel/li3ds-ros_arduino.git
 - git:
+    local-name: ros_arduino_msgs
+    uri: https://github.com/yoyonel/li3ds-ros_arduino_msgs
+- git:
     local-name: ros_rqt_plugin
     uri: https://github.com/yoyonel/li3ds-ros_rqt.git
 - git:
