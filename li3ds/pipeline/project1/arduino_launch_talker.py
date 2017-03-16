@@ -3,10 +3,11 @@
 
 Usage:
   arduino_launch_talker.py  [--rate=N] [--topic=TOPIC]
-                            [--t2=N] [--t3=N] [--t4=N]
-                            [--flash_on | --flash_off]
-                            [--start_on | --start_off]
-                            [--pause_on | --pause_off]
+                            [--gps_time=<d:d:d>]
+                            [--flash=<BOOL>]
+                            [--start=<BOOL>]
+                            [--pause=<BOOL>]
+                            [--boot=<BOOL>]
   arduino_launch_talker.py (-h | --help)
   arduino_launch_talker.py --version
 
@@ -17,15 +18,11 @@ Options:
                         [default: 1.00]
   --topic=TOPIC         Topic name for ROS pusblisher
                         [default: /Arduino/commands]
-  --t2=<seconds>        Seconds                    
-  --t3=<minutes>        Minutes                      
-  --t4=<hours>          Hours
-  --flash_off           LEDs    off
-  --flash_on            LEDs    on
-  --start_off           Start   off
-  --start_on            Start   on
-  --pause_off           Pause   off
-  --pause_on            Pause   on
+  --gps_time=<d:d:d>    GPS time to send
+  --flash=BOOL          set LEDs state
+  --start=BOOL          set Start state
+  --pause=BOOL          set Pause state
+  --boot=BOOL           set boot state
 """
 
 from docopt import docopt
@@ -42,39 +39,40 @@ import rospy
 from arduino_msgs.msg import commands
 
 
+_convert_to_bool = {
+    'true': True,
+    '1': True,
+    'on': True,
+    'false': False,
+    '0': False,
+    'off': False
+}
+
+_keys_for_booleans = ('true', 'false', '1', '0', 'on', 'off')
+
+
 def talker(**kwargs):
     topic = kwargs.get('--topic', '/Arduino/commands')
-    # pub = rospy.Publisher(topic, gps, queue_size=2)
     pub = rospy.Publisher(topic, commands, queue_size=2)
 
     rospy.init_node('custom_talker', anonymous=True)
 
-    # r = rospy.Rate(kwargs.get('--rate', 1))
-
-    # msg = gps()
     msg = commands()
-    #
-    update_clock = bool(
-        sum([(key in kwargs and (kwargs[key] is not None)) for key in ('--t2', '--t3', '--t4')]))
+
+    # GPS time
+    gps_time_from_args = kwargs['--gps_time']
+    update_clock = gps_time_from_args is not None
     msg.update_clock = update_clock
+    msg.t2_t3_t4 = gps_time_from_args if update_clock else [0] * 3
+
+    # States
+    msg.state_flash = kwargs['--flash'] if kwargs['--flash'] else False
+    msg.state_start = kwargs['--start'] if kwargs['--start'] else False
+    msg.state_pause = kwargs['--pause'] if kwargs['--pause'] else False
+    msg.state_boot = kwargs['--boot'] if kwargs['--boot'] else False
+
     #
-    if update_clock:
-      msg.t2_t3_t4 = [
-          kwargs['--t2'] if kwargs['--t2'] else 59,
-          kwargs['--t3'] if kwargs['--t3'] else 59,
-          kwargs['--t4'] if kwargs['--t4'] else 23,
-      ]
-    else:
-      msg.t2_t3_t4 = [0, 0, 0]
-    # msg.gprmc_pos = "Message NMEA"
-
-    # # States
-    msg.state_flash = kwargs.get('--flash_on', False)
-    msg.state_start = kwargs.get('--start_on', False)
-    msg.state_pause = kwargs.get('--pause_on', False)
-
     r = rospy.Rate(kwargs.get("--rate", 1.0))
-
     while not rospy.is_shutdown():
         rospy.loginfo(msg)
         pub.publish(msg)
@@ -89,6 +87,14 @@ if __name__ == '__main__':
 
     # TODO: il faudrait verifier que le topic transmis en argument
     # soit un topic (subscriber) actif ROS.
+    # urls:
+    # - https://github.com/docopt/docopt/issues/52
+    schema_for_boolean = Or(None,
+                            And(
+                                lambda n: n.lower() in _keys_for_booleans,
+                                Use(lambda l: _convert_to_bool[l.lower()])
+                            ),
+                            error='--flash=BOOL should be boolean.')
     schema = Schema({
         '--help': Or(None, And(Use(bool), lambda n: True)),
         '--version': Or(None, And(Use(bool), lambda n: True)),
@@ -96,18 +102,13 @@ if __name__ == '__main__':
                      error='--rate=N should be float 0.0 <= N <= 100.0'),
         '--topic': Or(None, And(Use(str), lambda n: True),
                       error='--topic=TOPIC should be string of ROS topic'),
-        '--t2': Or(None, And(Use(int) or None, lambda n: 0 <= n < 60),
-                   error='--t2=N should be integer 0 <= N < 60'),
-        '--t3': Or(None, And(Use(int) or None, lambda n: 0 <= n < 60),
-                   error='--t3=N should be integer 0 <= N < 60'),
-        '--t4': Or(None, And(Use(int) or None, lambda n: 0 <= n < 24),
-                   error='--t4=N should be integer 0 <= N < 24'),
-        '--flash_on': Or(None, And(Use(bool), lambda n: True)),
-        '--flash_off': Or(None, And(Use(bool), lambda n: True)),
-        '--start_on': Or(None, And(Use(bool), lambda n: True)),
-        '--start_off': Or(None, And(Use(bool), lambda n: True)),
-        '--pause_on': Or(None, And(Use(bool), lambda n: True)),
-        '--pause_off': Or(None, And(Use(bool), lambda n: True)),
+        '--gps_time': Or(None, And(Use(lambda s: map(int, s.split(':'))),
+                                   lambda l: len(l) == 3),
+                         error='--gps_time=<d:d:d>'),
+        '--flash': schema_for_boolean,
+        '--start': schema_for_boolean,
+        '--pause': schema_for_boolean,
+        '--boot': schema_for_boolean,
     }
     )
     try:
@@ -115,7 +116,7 @@ if __name__ == '__main__':
     except SchemaError as e:
         exit(e)
 
-    print(args)
+    print("args: %s" % args)
 
     try:
         talker(**args)
