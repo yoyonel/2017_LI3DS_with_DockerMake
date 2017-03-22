@@ -1,0 +1,210 @@
+2017-03-21 15:15:12,579 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2017-03-21 15:15:12,588 [      9]   INFO -        #com.intellij.idea.Main - IDE: PyCharm Community Edition (build #PC-163.15188.4, 10 Mar 2017 16:08) 
+2017-03-21 15:15:12,588 [      9]   INFO -        #com.intellij.idea.Main - OS: Linux (4.9.0-2-amd64, amd64) 
+2017-03-21 15:15:12,588 [      9]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_112-release-408-b6 (JetBrains s.r.o) 
+2017-03-21 15:15:12,588 [      9]   INFO -        #com.intellij.idea.Main - JVM: 25.112-b6 (OpenJDK 64-Bit Server VM) 
+2017-03-21 15:15:12,590 [     11]   INFO -        #com.intellij.idea.Main - JVM Args: -Xbootclasspath/a:/pycharm-community-2016.3.3/lib/boot.jar -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine -XX:ErrorFile=/root/java_error_in_PYCHARM_%p.log -XX:HeapDumpPath=/root/java_error_in_PYCHARM.hprof -Didea.paths.selector=PyCharmCE2016.3 -Djb.vmOptionsFile=/pycharm-community-2016.3.3/bin/pycharm64.vmoptions -Didea.platform.prefix=PyCharmCore 
+2017-03-21 15:15:12,590 [     11]   INFO -        #com.intellij.idea.Main - ext: /pycharm-community-2016.3.3/jre/jre/lib/ext: [meta-index, dnsns.jar, sunpkcs11.jar, jaccess.jar, localedata.jar, cldrdata.jar, sunjce_provider.jar, zipfs.jar, jfxrt.jar, sunec.jar, nashorn.jar] 
+2017-03-21 15:15:12,590 [     11]   INFO -        #com.intellij.idea.Main - JNU charset: UTF-8 
+2017-03-21 15:15:12,607 [     28]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 17 ms 
+2017-03-21 15:15:15,159 [   2580]   INFO - .intellij.idea.IdeaApplication - WM detected: Metacity (Marco) 
+2017-03-21 15:15:15,907 [   3328]   INFO - llij.ide.plugins.PluginManager - 16 plugins initialized in 558 ms 
+2017-03-21 15:15:15,908 [   3329]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: CVS Integration (11), EditorConfig (163.15188.4), Git Integration (8.1), GitHub (163.15188.4), IDEA CORE (163.15188.4), IPython Notebook (0.1), IntelliLang (8.0), Python IntelliLang (VERSION), Python ReStructureText Integration (1.0), Python Terminal (VERSION), ReStructuredText Support (136.SNAPSHOT), Settings Repository (163.15188.4), Subversion Integration (1.1), Task Management (1.0), Terminal (0.1), hg4idea (10.0) 
+2017-03-21 15:15:16,404 [   3825]   INFO - ellij.vfs.persistent.FSRecords - Marking VFS as corrupted: '/root/.PyCharmCE2016.3/system/caches/names.dat' does not exist 
+2017-03-21 15:15:16,406 [   3827]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=500; buffer=10; max=705 
+2017-03-21 15:15:16,433 [   3854]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: /pycharm-community-2016.3.3/bin/fsnotifier64 
+2017-03-21 15:15:16,446 [   3867]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2017-03-21 15:15:16,772 [   4193]   INFO - .history.utils.LocalHistoryLog - local history version mismatch (was: 0, expected: 6), rebuilding... 
+2017-03-21 15:15:16,772 [   4193]   INFO - .history.utils.LocalHistoryLog - FS has been rebuild, rebuilding local history... 
+2017-03-21 15:15:17,254 [   4675]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63342 
+2017-03-21 15:15:17,278 [   4699]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2017-03-21 15:15:17,436 [   4857]   INFO - il.indexing.FileBasedIndexImpl - Index exts enumerated:46 
+2017-03-21 15:15:17,442 [   4863]   INFO - il.indexing.FileBasedIndexImpl - Index scheduled:5 
+2017-03-21 15:15:17,474 [   4895]   INFO - tellij.psi.stubs.StubIndexImpl - All stub exts enumerated:27 
+2017-03-21 15:15:17,475 [   4896]   INFO - tellij.psi.stubs.StubIndexImpl - stub exts update scheduled:0 
+2017-03-21 15:15:17,562 [   4983]   INFO - j.ide.script.IdeStartupScripts - 0 startup script(s) found 
+2017-03-21 15:15:17,769 [   5190]   INFO - plication.impl.ApplicationImpl - 75 application components initialized in 2427ms 
+2017-03-21 15:15:17,816 [   5237]   INFO - .intellij.idea.IdeaApplication - App initialization took 9613 ms 
+2017-03-21 15:15:18,049 [   5470]   INFO - ij.psi.stubs.StubUpdatingIndex - Following new file types will be indexed:Python,PythonStub,XML,HTML 
+2017-03-21 15:15:18,291 [   5712]   INFO - pl$FileIndexDataInitialization - Initialization done:849 
+2017-03-21 15:15:18,406 [   5827]   INFO - exImpl$StubIndexInitialization - Initialization done:114 
+2017-03-21 15:15:19,569 [   6990]   INFO - ellij.project.impl.ProjectImpl - 15 project components initialized in 239 ms 
+2017-03-21 15:15:19,569 [   6990]   INFO - le.impl.ModuleManagerComponent - 0 module(s) loaded in 0 ms 
+2017-03-21 15:15:19,680 [   7101]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.openapi.actionSystem.impl.ActionPreloader@1107c7e2 
+2017-03-21 15:15:20,018 [   7439]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.ide.ui.search.SearchableOptionPreloader@24f7583f 
+2017-03-21 15:15:20,158 [   7579]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.codeInsight.completion.CompletionPreloader@5435a5f1 
+2017-03-21 15:15:30,002 [  17423]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2017-03-21 15:15:30,003 [  17424]   INFO - Types.impl.FileTypeManagerImpl - FileTypeManager: 0 auto-detected files
+Elapsed time on auto-detect: 0 ms 
+2017-03-21 15:15:30,011 [  17432]   INFO - stubs.SerializationManagerImpl - START StubSerializationManager SHUTDOWN 
+2017-03-21 15:15:30,012 [  17433]   INFO - stubs.SerializationManagerImpl - END StubSerializationManager SHUTDOWN 
+2017-03-21 15:15:30,012 [  17433]   INFO - il.indexing.FileBasedIndexImpl - START INDEX SHUTDOWN 
+2017-03-21 15:15:30,050 [  17471]   INFO - il.indexing.FileBasedIndexImpl - END INDEX SHUTDOWN 
+2017-03-21 15:15:30,055 [  17476]   INFO - pl.local.NativeFileWatcherImpl - Watcher terminated with exit code 0 
+2017-03-21 15:15:30,056 [  17477]   INFO - newvfs.persistent.PersistentFS - VFS dispose started 
+2017-03-21 15:15:30,059 [  17480]   INFO - newvfs.persistent.PersistentFS - VFS dispose completed 
+2017-03-21 15:15:30,076 [  17497]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
+2017-03-21 15:15:30,099 [  17520]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2017-03-21 15:15:32,083 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2017-03-21 15:15:32,101 [     18]   INFO -        #com.intellij.idea.Main - IDE: PyCharm Community Edition (build #PC-163.15188.4, 10 Mar 2017 16:32) 
+2017-03-21 15:15:32,102 [     19]   INFO -        #com.intellij.idea.Main - OS: Linux (4.9.0-2-amd64, amd64) 
+2017-03-21 15:15:32,102 [     19]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_112-release-408-b6 (JetBrains s.r.o) 
+2017-03-21 15:15:32,102 [     19]   INFO -        #com.intellij.idea.Main - JVM: 25.112-b6 (OpenJDK 64-Bit Server VM) 
+2017-03-21 15:15:32,104 [     21]   INFO -        #com.intellij.idea.Main - JVM Args: -Xbootclasspath/a:/pycharm-community-2016.3.3/lib/boot.jar -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine -XX:ErrorFile=/root/java_error_in_PYCHARM_%p.log -XX:HeapDumpPath=/root/java_error_in_PYCHARM.hprof -Didea.paths.selector=PyCharmCE2016.3 -Djb.vmOptionsFile=/pycharm-community-2016.3.3/bin/pycharm64.vmoptions -Didea.platform.prefix=PyCharmCore 
+2017-03-21 15:15:32,104 [     21]   INFO -        #com.intellij.idea.Main - ext: /pycharm-community-2016.3.3/jre/jre/lib/ext: [meta-index, dnsns.jar, sunpkcs11.jar, jaccess.jar, localedata.jar, cldrdata.jar, sunjce_provider.jar, zipfs.jar, jfxrt.jar, sunec.jar, nashorn.jar] 
+2017-03-21 15:15:32,104 [     21]   INFO -        #com.intellij.idea.Main - JNU charset: UTF-8 
+2017-03-21 15:15:32,121 [     38]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 17 ms 
+2017-03-21 15:15:32,128 [     45]   INFO -     #com.intellij.util.ui.JBUI - UI scale factor: 1.0 
+2017-03-21 15:15:32,234 [    151]   INFO - .intellij.idea.IdeaApplication - WM detected: Metacity (Marco) 
+2017-03-21 15:15:33,084 [   1001]   INFO - llij.ide.plugins.PluginManager - 16 plugins initialized in 573 ms 
+2017-03-21 15:15:33,085 [   1002]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: CVS Integration (11), EditorConfig (163.15188.4), Git Integration (8.1), GitHub (163.15188.4), IDEA CORE (163.15188.4), IPython Notebook (0.1), IntelliLang (8.0), Python IntelliLang (VERSION), Python ReStructureText Integration (1.0), Python Terminal (VERSION), ReStructuredText Support (136.SNAPSHOT), Settings Repository (163.15188.4), Subversion Integration (1.1), Task Management (1.0), Terminal (0.1), hg4idea (10.0) 
+2017-03-21 15:15:33,536 [   1453]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=500; buffer=10; max=705 
+2017-03-21 15:15:33,565 [   1482]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: /pycharm-community-2016.3.3/bin/fsnotifier64 
+2017-03-21 15:15:33,576 [   1493]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2017-03-21 15:15:34,584 [   2501]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63342 
+2017-03-21 15:15:34,613 [   2530]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2017-03-21 15:15:34,717 [   2634]   INFO - il.indexing.FileBasedIndexImpl - Index exts enumerated:31 
+2017-03-21 15:15:34,724 [   2641]   INFO - il.indexing.FileBasedIndexImpl - Index scheduled:6 
+2017-03-21 15:15:34,740 [   2657]   INFO - tellij.psi.stubs.StubIndexImpl - All stub exts enumerated:6 
+2017-03-21 15:15:34,743 [   2660]   INFO - tellij.psi.stubs.StubIndexImpl - stub exts update scheduled:3 
+2017-03-21 15:15:34,815 [   2732]   INFO - j.ide.script.IdeStartupScripts - 0 startup script(s) found 
+2017-03-21 15:15:34,913 [   2830]   INFO - plication.impl.ApplicationImpl - 75 application components initialized in 2406ms 
+2017-03-21 15:15:34,995 [   2912]   INFO - .intellij.idea.IdeaApplication - App initialization took 3626 ms 
+2017-03-21 15:15:35,444 [   3361]   INFO - pl$FileIndexDataInitialization - Initialization done:720 
+2017-03-21 15:15:35,486 [   3403]   INFO - exImpl$StubIndexInitialization - Initialization done:41 
+2017-03-21 15:15:36,542 [   4459]   INFO - ellij.project.impl.ProjectImpl - 15 project components initialized in 220 ms 
+2017-03-21 15:15:36,571 [   4488]   INFO - le.impl.ModuleManagerComponent - 0 module(s) loaded in 0 ms 
+2017-03-21 15:15:36,679 [   4596]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.openapi.actionSystem.impl.ActionPreloader@1057a5c8 
+2017-03-21 15:15:36,949 [   4866]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.ide.ui.search.SearchableOptionPreloader@43600cd7 
+2017-03-21 15:15:37,069 [   4986]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.codeInsight.completion.CompletionPreloader@d9dfe0f 
+2017-03-21 15:16:34,633 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2017-03-21 15:16:34,647 [     14]   INFO -        #com.intellij.idea.Main - IDE: PyCharm Community Edition (build #PC-163.15188.4, 10 Mar 2017 16:34) 
+2017-03-21 15:16:34,647 [     14]   INFO -        #com.intellij.idea.Main - OS: Linux (4.9.0-2-amd64, amd64) 
+2017-03-21 15:16:34,647 [     14]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_112-release-408-b6 (JetBrains s.r.o) 
+2017-03-21 15:16:34,648 [     15]   INFO -        #com.intellij.idea.Main - JVM: 25.112-b6 (OpenJDK 64-Bit Server VM) 
+2017-03-21 15:16:34,649 [     16]   INFO -        #com.intellij.idea.Main - JVM Args: -Xbootclasspath/a:/pycharm-community-2016.3.3/lib/boot.jar -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine -XX:ErrorFile=/root/java_error_in_PYCHARM_%p.log -XX:HeapDumpPath=/root/java_error_in_PYCHARM.hprof -Didea.paths.selector=PyCharmCE2016.3 -Djb.vmOptionsFile=/pycharm-community-2016.3.3/bin/pycharm64.vmoptions -Didea.platform.prefix=PyCharmCore 
+2017-03-21 15:16:34,649 [     16]   INFO -        #com.intellij.idea.Main - ext: /pycharm-community-2016.3.3/jre/jre/lib/ext: [meta-index, dnsns.jar, sunpkcs11.jar, jaccess.jar, localedata.jar, cldrdata.jar, sunjce_provider.jar, zipfs.jar, jfxrt.jar, sunec.jar, nashorn.jar] 
+2017-03-21 15:16:34,650 [     17]   INFO -        #com.intellij.idea.Main - JNU charset: UTF-8 
+2017-03-21 15:16:34,666 [     33]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 16 ms 
+2017-03-21 15:16:34,674 [     41]   INFO -     #com.intellij.util.ui.JBUI - UI scale factor: 1.0 
+2017-03-21 15:16:37,986 [   3353]   INFO - .intellij.idea.IdeaApplication - WM detected: Metacity (Marco) 
+2017-03-21 15:16:38,702 [   4069]   INFO - llij.ide.plugins.PluginManager - 16 plugins initialized in 505 ms 
+2017-03-21 15:16:38,703 [   4070]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: CVS Integration (11), EditorConfig (163.15188.4), Git Integration (8.1), GitHub (163.15188.4), IDEA CORE (163.15188.4), IPython Notebook (0.1), IntelliLang (8.0), Python IntelliLang (VERSION), Python ReStructureText Integration (1.0), Python Terminal (VERSION), ReStructuredText Support (136.SNAPSHOT), Settings Repository (163.15188.4), Subversion Integration (1.1), Task Management (1.0), Terminal (0.1), hg4idea (10.0) 
+2017-03-21 15:16:39,106 [   4473]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=500; buffer=10; max=705 
+2017-03-21 15:16:39,132 [   4499]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: /pycharm-community-2016.3.3/bin/fsnotifier64 
+2017-03-21 15:16:39,144 [   4511]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2017-03-21 15:16:40,170 [   5537]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63342 
+2017-03-21 15:16:40,199 [   5566]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2017-03-21 15:16:40,290 [   5657]   INFO - il.indexing.FileBasedIndexImpl - Index exts enumerated:25 
+2017-03-21 15:16:40,297 [   5664]   INFO - il.indexing.FileBasedIndexImpl - Index scheduled:7 
+2017-03-21 15:16:40,318 [   5685]   INFO - tellij.psi.stubs.StubIndexImpl - All stub exts enumerated:11 
+2017-03-21 15:16:40,319 [   5686]   INFO - tellij.psi.stubs.StubIndexImpl - stub exts update scheduled:0 
+2017-03-21 15:16:40,400 [   5767]   INFO - j.ide.script.IdeStartupScripts - 0 startup script(s) found 
+2017-03-21 15:16:40,507 [   5874]   INFO - plication.impl.ApplicationImpl - 75 application components initialized in 2316ms 
+2017-03-21 15:16:40,554 [   5921]   INFO - .intellij.idea.IdeaApplication - App initialization took 6655 ms 
+2017-03-21 15:16:40,979 [   6346]   INFO - pl$FileIndexDataInitialization - Initialization done:684 
+2017-03-21 15:16:41,035 [   6402]   INFO - exImpl$StubIndexInitialization - Initialization done:55 
+2017-03-21 15:16:41,800 [   7167]   INFO - ellij.project.impl.ProjectImpl - 15 project components initialized in 224 ms 
+2017-03-21 15:16:41,801 [   7168]   INFO - le.impl.ModuleManagerComponent - 0 module(s) loaded in 0 ms 
+2017-03-21 15:16:41,866 [   7233]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.openapi.actionSystem.impl.ActionPreloader@42a9fb8e 
+2017-03-21 15:16:42,213 [   7580]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.ide.ui.search.SearchableOptionPreloader@112c32d2 
+2017-03-21 15:16:42,331 [   7698]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.codeInsight.completion.CompletionPreloader@6af376aa 
+2017-03-21 15:16:53,837 [  19204]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2017-03-21 15:16:53,837 [  19204]   INFO - Types.impl.FileTypeManagerImpl - FileTypeManager: 0 auto-detected files
+Elapsed time on auto-detect: 0 ms 
+2017-03-21 15:16:53,844 [  19211]   INFO - stubs.SerializationManagerImpl - START StubSerializationManager SHUTDOWN 
+2017-03-21 15:16:53,847 [  19214]   INFO - stubs.SerializationManagerImpl - END StubSerializationManager SHUTDOWN 
+2017-03-21 15:16:53,847 [  19214]   INFO - il.indexing.FileBasedIndexImpl - START INDEX SHUTDOWN 
+2017-03-21 15:16:53,869 [  19236]   INFO - il.indexing.FileBasedIndexImpl - END INDEX SHUTDOWN 
+2017-03-21 15:16:53,903 [  19270]   INFO - pl.local.NativeFileWatcherImpl - Watcher terminated with exit code 0 
+2017-03-21 15:16:53,903 [  19270]   INFO - newvfs.persistent.PersistentFS - VFS dispose started 
+2017-03-21 15:16:53,905 [  19272]   INFO - newvfs.persistent.PersistentFS - VFS dispose completed 
+2017-03-21 15:16:53,907 [  19274]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
+2017-03-21 15:16:53,909 [  19276]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2017-03-21 15:19:12,382 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2017-03-21 15:19:12,397 [     15]   INFO -        #com.intellij.idea.Main - IDE: PyCharm Community Edition (build #PC-163.15188.4, 10 Mar 2017 16:12) 
+2017-03-21 15:19:12,397 [     15]   INFO -        #com.intellij.idea.Main - OS: Linux (4.9.0-2-amd64, amd64) 
+2017-03-21 15:19:12,397 [     15]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_112-release-408-b6 (JetBrains s.r.o) 
+2017-03-21 15:19:12,397 [     15]   INFO -        #com.intellij.idea.Main - JVM: 25.112-b6 (OpenJDK 64-Bit Server VM) 
+2017-03-21 15:19:12,399 [     17]   INFO -        #com.intellij.idea.Main - JVM Args: -Xbootclasspath/a:/pycharm-community-2016.3.3/lib/boot.jar -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine -XX:ErrorFile=/root/java_error_in_PYCHARM_%p.log -XX:HeapDumpPath=/root/java_error_in_PYCHARM.hprof -Didea.paths.selector=PyCharmCE2016.3 -Djb.vmOptionsFile=/pycharm-community-2016.3.3/bin/pycharm64.vmoptions -Didea.platform.prefix=PyCharmCore 
+2017-03-21 15:19:12,399 [     17]   INFO -        #com.intellij.idea.Main - ext: /pycharm-community-2016.3.3/jre/jre/lib/ext: [meta-index, dnsns.jar, sunpkcs11.jar, jaccess.jar, localedata.jar, cldrdata.jar, sunjce_provider.jar, zipfs.jar, jfxrt.jar, sunec.jar, nashorn.jar] 
+2017-03-21 15:19:12,399 [     17]   INFO -        #com.intellij.idea.Main - JNU charset: UTF-8 
+2017-03-21 15:19:12,415 [     33]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 16 ms 
+2017-03-21 15:19:12,423 [     41]   INFO -     #com.intellij.util.ui.JBUI - UI scale factor: 1.0 
+2017-03-21 15:19:15,523 [   3141]   INFO - .intellij.idea.IdeaApplication - WM detected: Metacity (Marco) 
+2017-03-21 15:19:16,232 [   3850]   INFO - llij.ide.plugins.PluginManager - 16 plugins initialized in 552 ms 
+2017-03-21 15:19:16,235 [   3853]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: CVS Integration (11), EditorConfig (163.15188.4), Git Integration (8.1), GitHub (163.15188.4), IDEA CORE (163.15188.4), IPython Notebook (0.1), IntelliLang (8.0), Python IntelliLang (VERSION), Python ReStructureText Integration (1.0), Python Terminal (VERSION), ReStructuredText Support (136.SNAPSHOT), Settings Repository (163.15188.4), Subversion Integration (1.1), Task Management (1.0), Terminal (0.1), hg4idea (10.0) 
+2017-03-21 15:19:16,694 [   4312]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=500; buffer=10; max=705 
+2017-03-21 15:19:16,727 [   4345]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: /pycharm-community-2016.3.3/bin/fsnotifier64 
+2017-03-21 15:19:16,743 [   4361]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2017-03-21 15:19:17,843 [   5461]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63342 
+2017-03-21 15:19:17,887 [   5505]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2017-03-21 15:19:18,043 [   5661]   INFO - il.indexing.FileBasedIndexImpl - Index exts enumerated:40 
+2017-03-21 15:19:18,051 [   5669]   INFO - il.indexing.FileBasedIndexImpl - Index scheduled:6 
+2017-03-21 15:19:18,070 [   5688]   INFO - tellij.psi.stubs.StubIndexImpl - All stub exts enumerated:11 
+2017-03-21 15:19:18,071 [   5689]   INFO - tellij.psi.stubs.StubIndexImpl - stub exts update scheduled:0 
+2017-03-21 15:19:18,144 [   5762]   INFO - j.ide.script.IdeStartupScripts - 0 startup script(s) found 
+2017-03-21 15:19:18,329 [   5947]   INFO - plication.impl.ApplicationImpl - 75 application components initialized in 2652ms 
+2017-03-21 15:19:18,402 [   6020]   INFO - .intellij.idea.IdeaApplication - App initialization took 6689 ms 
+2017-03-21 15:19:18,773 [   6391]   INFO - pl$FileIndexDataInitialization - Initialization done:724 
+2017-03-21 15:19:18,818 [   6436]   INFO - exImpl$StubIndexInitialization - Initialization done:44 
+2017-03-21 15:19:19,701 [   7319]   INFO - ellij.project.impl.ProjectImpl - 15 project components initialized in 260 ms 
+2017-03-21 15:19:19,702 [   7320]   INFO - le.impl.ModuleManagerComponent - 0 module(s) loaded in 0 ms 
+2017-03-21 15:19:19,784 [   7402]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.openapi.actionSystem.impl.ActionPreloader@5e955167 
+2017-03-21 15:19:20,052 [   7670]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2017-03-21 15:19:20,053 [   7671]   INFO - Types.impl.FileTypeManagerImpl - FileTypeManager: 0 auto-detected files
+Elapsed time on auto-detect: 0 ms 
+2017-03-21 15:19:20,059 [   7677]   INFO - stubs.SerializationManagerImpl - START StubSerializationManager SHUTDOWN 
+2017-03-21 15:19:20,069 [   7687]   INFO - stubs.SerializationManagerImpl - END StubSerializationManager SHUTDOWN 
+2017-03-21 15:19:20,070 [   7688]   INFO - il.indexing.FileBasedIndexImpl - START INDEX SHUTDOWN 
+2017-03-21 15:19:20,118 [   7736]   INFO - il.indexing.FileBasedIndexImpl - END INDEX SHUTDOWN 
+2017-03-21 15:19:20,123 [   7741]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.ide.ui.search.SearchableOptionPreloader@370467e0 
+2017-03-21 15:19:20,134 [   7752]   INFO - pl.local.NativeFileWatcherImpl - Watcher terminated with exit code 0 
+2017-03-21 15:19:20,134 [   7752]   INFO - newvfs.persistent.PersistentFS - VFS dispose started 
+2017-03-21 15:19:20,138 [   7756]   INFO - newvfs.persistent.PersistentFS - VFS dispose completed 
+2017-03-21 15:19:20,149 [   7767]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
+2017-03-21 15:19:20,154 [   7772]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2017-03-21 15:19:27,211 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2017-03-21 15:19:27,225 [     14]   INFO -        #com.intellij.idea.Main - IDE: PyCharm Community Edition (build #PC-163.15188.4, 10 Mar 2017 16:27) 
+2017-03-21 15:19:27,225 [     14]   INFO -        #com.intellij.idea.Main - OS: Linux (4.9.0-2-amd64, amd64) 
+2017-03-21 15:19:27,225 [     14]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_112-release-408-b6 (JetBrains s.r.o) 
+2017-03-21 15:19:27,225 [     14]   INFO -        #com.intellij.idea.Main - JVM: 25.112-b6 (OpenJDK 64-Bit Server VM) 
+2017-03-21 15:19:27,227 [     16]   INFO -        #com.intellij.idea.Main - JVM Args: -Xbootclasspath/a:/pycharm-community-2016.3.3/lib/boot.jar -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine -XX:ErrorFile=/root/java_error_in_PYCHARM_%p.log -XX:HeapDumpPath=/root/java_error_in_PYCHARM.hprof -Didea.paths.selector=PyCharmCE2016.3 -Djb.vmOptionsFile=/pycharm-community-2016.3.3/bin/pycharm64.vmoptions -Didea.platform.prefix=PyCharmCore 
+2017-03-21 15:19:27,227 [     16]   INFO -        #com.intellij.idea.Main - ext: /pycharm-community-2016.3.3/jre/jre/lib/ext: [meta-index, dnsns.jar, sunpkcs11.jar, jaccess.jar, localedata.jar, cldrdata.jar, sunjce_provider.jar, zipfs.jar, jfxrt.jar, sunec.jar, nashorn.jar] 
+2017-03-21 15:19:27,227 [     16]   INFO -        #com.intellij.idea.Main - JNU charset: UTF-8 
+2017-03-21 15:19:27,244 [     33]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 16 ms 
+2017-03-21 15:19:27,251 [     40]   INFO -     #com.intellij.util.ui.JBUI - UI scale factor: 1.0 
+2017-03-21 15:19:27,345 [    134]   INFO - .intellij.idea.IdeaApplication - WM detected: Metacity (Marco) 
+2017-03-21 15:19:28,207 [    996]   INFO - llij.ide.plugins.PluginManager - 16 plugins initialized in 572 ms 
+2017-03-21 15:19:28,208 [    997]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: CVS Integration (11), EditorConfig (163.15188.4), Git Integration (8.1), GitHub (163.15188.4), IDEA CORE (163.15188.4), IPython Notebook (0.1), IntelliLang (8.0), Python IntelliLang (VERSION), Python ReStructureText Integration (1.0), Python Terminal (VERSION), ReStructuredText Support (136.SNAPSHOT), Settings Repository (163.15188.4), Subversion Integration (1.1), Task Management (1.0), Terminal (0.1), hg4idea (10.0) 
+2017-03-21 15:19:28,718 [   1507]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=500; buffer=10; max=705 
+2017-03-21 15:19:28,758 [   1547]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: /pycharm-community-2016.3.3/bin/fsnotifier64 
+2017-03-21 15:19:28,769 [   1558]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2017-03-21 15:19:29,650 [   2439]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63342 
+2017-03-21 15:19:29,683 [   2472]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2017-03-21 15:19:29,786 [   2575]   INFO - il.indexing.FileBasedIndexImpl - Index exts enumerated:28 
+2017-03-21 15:19:29,801 [   2590]   INFO - il.indexing.FileBasedIndexImpl - Index scheduled:14 
+2017-03-21 15:19:29,819 [   2608]   INFO - tellij.psi.stubs.StubIndexImpl - All stub exts enumerated:5 
+2017-03-21 15:19:29,820 [   2609]   INFO - tellij.psi.stubs.StubIndexImpl - stub exts update scheduled:0 
+2017-03-21 15:19:29,886 [   2675]   INFO - j.ide.script.IdeStartupScripts - 0 startup script(s) found 
+2017-03-21 15:19:29,957 [   2746]   INFO - plication.impl.ApplicationImpl - 75 application components initialized in 2326ms 
+2017-03-21 15:19:30,030 [   2819]   INFO - .intellij.idea.IdeaApplication - App initialization took 3482 ms 
+2017-03-21 15:19:30,510 [   3299]   INFO - pl$FileIndexDataInitialization - Initialization done:718 
+2017-03-21 15:19:30,549 [   3338]   INFO - exImpl$StubIndexInitialization - Initialization done:37 
+2017-03-21 15:19:31,473 [   4262]   INFO - ellij.project.impl.ProjectImpl - 15 project components initialized in 225 ms 
+2017-03-21 15:19:31,475 [   4264]   INFO - le.impl.ModuleManagerComponent - 0 module(s) loaded in 0 ms 
+2017-03-21 15:19:31,575 [   4364]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.openapi.actionSystem.impl.ActionPreloader@225f6f31 
+2017-03-21 15:19:31,911 [   4700]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.ide.ui.search.SearchableOptionPreloader@35ebef9 
+2017-03-21 15:19:32,045 [   4834]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.codeInsight.completion.CompletionPreloader@353ae168 
+2017-03-21 15:19:39,518 [  12307]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2017-03-21 15:19:39,518 [  12307]   INFO - Types.impl.FileTypeManagerImpl - FileTypeManager: 0 auto-detected files
+Elapsed time on auto-detect: 0 ms 
+2017-03-21 15:19:39,523 [  12312]   INFO - stubs.SerializationManagerImpl - START StubSerializationManager SHUTDOWN 
+2017-03-21 15:19:39,524 [  12313]   INFO - stubs.SerializationManagerImpl - END StubSerializationManager SHUTDOWN 
+2017-03-21 15:19:39,524 [  12313]   INFO - il.indexing.FileBasedIndexImpl - START INDEX SHUTDOWN 
+2017-03-21 15:19:39,539 [  12328]   INFO - il.indexing.FileBasedIndexImpl - END INDEX SHUTDOWN 
+2017-03-21 15:19:39,542 [  12331]   INFO - pl.local.NativeFileWatcherImpl - Watcher terminated with exit code 0 
+2017-03-21 15:19:39,543 [  12332]   INFO - newvfs.persistent.PersistentFS - VFS dispose started 
+2017-03-21 15:19:39,545 [  12334]   INFO - newvfs.persistent.PersistentFS - VFS dispose completed 
+2017-03-21 15:19:39,552 [  12341]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2017-03-21 15:19:39,553 [  12342]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
