@@ -23,6 +23,26 @@ OPTIONS_FOR_QTCREATOR="
             -v $(realpath $1/.config):/root/.config	\
             --security-opt seccomp=unconfined 		\
             "
+
+# Configs JAVA
+# useful for PyCharm settings (for example)
+if [ ! -d $1/.java ]; then
+	mkdir -p $1/.java
+fi
+OPTIONS_FOR_JAVA="
+			-v $(realpath $1/.java):/root/.java 	\
+"
+
+# PyCharm (2016.3)
+PYCHARM_CONFIGS=.PyCharmCE2016.3
+if [ ! -d $1/$PYCHARM_CONFIGS ]; then
+	mkdir -p $1/$PYCHARM_CONFIGS
+fi
+OPTIONS_FOR_PYCHARM="
+			-v $(realpath $1/$PYCHARM_CONFIGS):/root/$PYCHARM_CONFIGS	\
+"
+
+# ROS/CATKIN WORKSPACES
 OPTIONS_FOR_ROS_WORKSPACES=" 								\
 			-v $PATH_TO_OVERLAY_WS_VOLUME:/root/overlay_ws 	\
 			-v $PATH_TO_CATKIN_WS_VOLUME:/root/catkin_ws 	\
@@ -67,6 +87,8 @@ docker	run											\
 	$OPTIONS_FOR_DOCKER								\
 	$OPTIONS_FOR_ROS_WORKSPACES						\
 	$OPTIONS_FOR_QTCREATOR							\
+	$OPTIONS_FOR_JAVA								\
+	$OPTIONS_FOR_PYCHARM							\
 	$OPTIONS_FOR_PROJECT							\
 	$OPTIONS_FOR_PROXY								\
 	$OPTIONS_FOR_SSH								\
