@@ -16,7 +16,7 @@ Options:
   --version             show version
   --rate=N              Frequence du message ROS (en Hz)
                         [default: 1.00]
-  --topic=TOPIC         Topic name for ROS pusblisher
+  --topic=TOPIC         Topic name for ROS publisher
                         [default: /Arduino/commands]
   --gps_time=<d:d:d>    GPS time to send
   --flash=BOOL          set LEDs state
@@ -62,7 +62,9 @@ def talker(**kwargs):
     # GPS time
     gps_time_from_args = kwargs['--gps_time']
     update_clock = gps_time_from_args is not None
+    print("update_clock: %s" % update_clock)
     msg.update_clock = update_clock
+    # faudrait swizzler les parametres
     msg.t2_t3_t4 = gps_time_from_args if update_clock else [0] * 3
 
     # States
