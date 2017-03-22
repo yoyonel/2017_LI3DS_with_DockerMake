@@ -69,11 +69,17 @@ li3ds-dev_qtcreator:
     - li3ds-base
   build_directory: li3ds/dev/qtcreator
 
+li3ds-dev_pycharm:
+  requires:
+    - li3ds-base
+  build_directory: li3ds/dev/pycharm
+
 li3ds-dev:
   requires:
     - li3ds-base
     - li3ds-tools
     - li3ds-dev_qtcreator
+    - li3ds-dev_pycharm
   build_directory: li3ds/dev
 
 li3ds-prototype:
