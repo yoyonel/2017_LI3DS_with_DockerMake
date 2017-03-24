@@ -8,6 +8,8 @@ include(ExternalProject)
 # LibNMEA
 ###############################################################################
 
+MESSAGE(GLOBAL_OUTPUT_PATH: ${GLOBAL_OUTPUT_PATH})
+
 ExternalProject_Add(
   libnmea
 
@@ -21,17 +23,19 @@ ExternalProject_Add(
   CMAKE_ARGS  -DNMEA_BUILD_SHARED_LIB=ON 
               -DNMEA_BUILD_EXAMPLES=OFF
               -DNMEA_UNIT_TESTS=FALSE
-              -DCMAKE_INSTALL_PREFIX=${GLOBAL_OUTPUT_PATH}/libnmea
+              -DCMAKE_INSTALL_PREFIX=${GLOBAL_OUTPUT_PATH}/3rdparty/libnmea
   TEST_COMMAND ""
 )
 
 ExternalProject_Add_Step(
   libnmea CopyToBin
-  COMMAND ${CMAKE_COMMAND} -E copy_directory ${GLOBAL_OUTPUT_PATH}/libnmea/bin ${GLOBAL_OUTPUT_PATH}
-  COMMAND ${CMAKE_COMMAND} -E copy_directory ${GLOBAL_OUTPUT_PATH}/libnmea/lib ${GLOBAL_OUTPUT_PATH}
+  COMMAND ${CMAKE_COMMAND} -E copy_directory ${GLOBAL_OUTPUT_PATH}/3rdparty/libnmea/bin ${GLOBAL_OUTPUT_PATH}
+  COMMAND ${CMAKE_COMMAND} -E copy_directory ${GLOBAL_OUTPUT_PATH}/3rdparty/libnmea/lib ${GLOBAL_OUTPUT_PATH}
   DEPENDEES install
 )
 
-set(libnmea_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/3rdparty/libnmea/include")
+#set(libnmea_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/3rdparty/libnmea/include")
+set(libnmea_INCLUDE_DIRS "${GLOBAL_OUTPUT_PATH}/3rdparty/libnmea/include")
+MESSAGE(libnmea_INCLUDE_DIRS: ${libnmea_INCLUDE_DIRS})
 set(libnmea_LIBRARIES "${CMAKE_SHARED_LIBRARY_PREFIX}nmea${CMAKE_SHARED_LIBRARY_SUFFIX}")
 include_directories(${libnmea_INCLUDE_DIRS})

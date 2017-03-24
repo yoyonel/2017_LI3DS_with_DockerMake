@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8.4)
 project(test_use_libnmea)
 
+SET(CMAKE_BUILD_TYPE "Debug")
 
 # Global settings
 set(GLOBAL_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
