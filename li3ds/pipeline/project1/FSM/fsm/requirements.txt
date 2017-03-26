@@ -1,0 +1,2 @@
+git+https://github.com/oozie/python-fsm.git
+# git+git://github.com/pygraphviz/pygraphviz.git

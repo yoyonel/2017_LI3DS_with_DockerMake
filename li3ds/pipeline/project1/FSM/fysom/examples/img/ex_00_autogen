@@ -1,0 +1,7 @@
+digraph {
+	graph [rankdir=LR]
+		awake [label=awake]
+		sleeping [label=sleeping]
+			sleeping -> awake [label="transition: wakeup"]
+			awake -> sleeping [label="transition: sleep"]
+}
