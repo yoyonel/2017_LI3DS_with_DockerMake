@@ -20,7 +20,10 @@ RUN apt-get -y install \
 
 ENV SUBLIME_VERSION build_3126
 
-RUN curl -sSL "https://download.sublimetext.com/sublime_text_3_${SUBLIME_VERSION}_x64.tar.bz2" -o /tmp/sublime.tar.bz2 \
+#RUN curl -sSL "https://download.sublimetext.com/sublime_text_3_${SUBLIME_VERSION}_x64.tar.bz2" -o /tmp/sublime.tar.bz2 \
+#RUN wget "https://download.sublimetext.com/sublime_text_3_${SUBLIME_VERSION}_x64.tar.bz2" -O /tmp/sublime.tar.bz2 \
+COPY sublime_text_3_build_3126_x64.tar.bz2 /tmp/sublime.tar.bz2
+RUN echo "install SublimeText3" \
   && mkdir -p /usr/src/sublime_text \
   && tar -xjf /tmp/sublime.tar.bz2 -C /usr/src/sublime_text --strip-components 1 \
   && rm /tmp/sublime.tar.bz2*

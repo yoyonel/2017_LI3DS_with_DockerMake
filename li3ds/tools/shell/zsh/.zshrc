@@ -1,3 +1,8 @@
+# for tmuxp
+export DISABLE_AUTO_TITLE='true'
+# url: http://tmuxp.git-pull.com/en/latest/cli.html#completion
+eval "$(_TMUXP_COMPLETE=source tmuxp)"
+
 # launch tmux
 # url: http://unix.stackexchange.com/questions/41274/having-tmux-load-by-default-when-a-zsh-terminal-is-launched
 if [ -z $TMUX ]; then; tmux; fi
@@ -62,7 +67,12 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(
+		git 
+		zsh-syntax-highlighting
+		zsh-autosuggestions
+		tmux
+)
 
 source $ZSH/oh-my-zsh.sh
 

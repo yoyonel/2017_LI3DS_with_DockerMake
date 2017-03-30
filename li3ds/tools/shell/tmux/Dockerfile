@@ -14,4 +14,7 @@ RUN apt-get -y install \
 # RUN echo 'set -g default-terminal "screen-256color"' >> .tmux.conf
 COPY .tmux.conf /root/.tmux.conf
 
+# installation de tmuxp: http://tmuxp.git-pull.com/en/latest/quickstart.html
+RUN pip install tmuxp
+
 CMD ["tmux"]
