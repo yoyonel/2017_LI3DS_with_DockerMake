@@ -77,6 +77,13 @@ OPTIONS_FOR_USB="
 			-v /dev/bus/usb:/dev/bus/usb	\
 "
 
+OPTIONS_FOR_ZSH="
+			-v $(realpath $1/.zshrc):/root/.zshrc
+"
+
+OPTIONS_FOR_TMUXP="
+			-v $(realpath $1/.tmuxp):/root/.tmuxp
+"
 
 # Container sur l'image du projet
 docker	run											\
@@ -94,6 +101,8 @@ docker	run											\
 	$OPTIONS_FOR_SSH								\
 	$OPTIONS_FOR_USB								\
 	$OPTIONS_FOR_LASER								\
+	$OPTIONS_FOR_ZSH								\
+	$OPTIONS_FOR_TMUXP								\
 	$PROJECT_IMAGE_TO		 						\
 	bash -c "unset NEWUSER; tmux"
 
