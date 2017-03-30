@@ -1,0 +1,39 @@
+session_name: LI3DS
+
+environment:
+  EDITOR: /usr/bin/vim
+  HOME: /root/
+
+#before_script: ~/catkin_ws/devel/setup.zsh
+
+windows:
+  - window_name: QtCreator
+    shell_command_before:
+      - source ~/catkin_ws/devel/setup.zsh
+    panes:
+    - shell_command:
+        - /launch_qtcreator.sh
+  - window_name: SublimeText3
+    shell_command_before:
+      - source ~/catkin_ws/devel/setup.zsh
+    panes:
+    - shell_command:
+        - /launch_st3.sh
+
+  - window_name: catkin_ws
+    focus: true
+    layout: main-vertical
+    shell_command_before:
+      - source ~/catkin_ws/devel/setup.zsh
+      - cd ~/catkin_ws
+    panes:
+      - blank
+      - blank
+      - blank
+
+  - window_name: current project
+    shell_command_before:
+      - source ~/catkin_ws/devel/setup.zsh
+      - cd ~/project
+    panes:
+      - blank

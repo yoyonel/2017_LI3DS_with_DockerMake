@@ -1,0 +1,38 @@
+session_name: LI3DS
+windows:
+- layout: cb5f,211x48,0,0,2
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: /bin/bash
+  start_directory: /root
+  window_name: QtCreator
+- layout: cb60,211x48,0,0,3
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: /bin/bash
+  start_directory: /root
+  window_name: SublimeText3
+- layout: 8347,211x48,0,0{80x48,0,0,4,130x48,81,0[130x24,81,0,5,130x23,81,25,6]}
+  options:
+    automatic-rename: 'off'
+  panes:
+  - pane
+  - pane
+  - pane
+  start_directory: /root/catkin_ws
+  window_name: catkin_ws
+- focus: 'true'
+  layout: 493f,211x48,0,0[211x24,0,0{105x24,0,0,7,105x24,106,0,9},211x23,0,25{105x23,0,25,8,105x23,106,25,10}]
+  options:
+    automatic-rename: 'off'
+  panes:
+  - cd /root/catkin_ws
+  - cd /
+  - cd /root/project
+  - focus: 'true'
+    shell_command: cd /root/project
+  window_name: current project
