@@ -7,18 +7,30 @@ environment:
 #before_script: ~/catkin_ws/devel/setup.zsh
 
 windows:
-  - window_name: QtCreator
-    shell_command_before:
-      - source ~/catkin_ws/devel/setup.zsh
-    panes:
-    - shell_command:
-        - /launch_qtcreator.sh
+  ##########################################
+  # IDE/Text Editor
+  ##########################################
   - window_name: SublimeText3
     shell_command_before:
       - source ~/catkin_ws/devel/setup.zsh
     panes:
     - shell_command:
         - /launch_st3.sh
+
+  - window_name: QtCreator
+    shell_command_before:
+      - source ~/catkin_ws/devel/setup.zsh
+    panes:
+    - shell_command:
+        - /launch_qtcreator.sh
+
+  - window_name: PyCharm2016
+    shell_command_before:
+      - source ~/catkin_ws/devel/setup.zsh
+    panes:
+    - shell_command:
+        - /launch_pycharm.sh
+  ##########################################
 
   - window_name: catkin_ws
     focus: true

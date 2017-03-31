@@ -9,12 +9,16 @@
 		<!-- ros_args.launch -->
 		<arg name="VLP16_NETWORK_SENSOR_IP" default="172.20.0.191" doc="IP du sensor Velodyne VLP16"/>
 		<arg name="model" default="VLP16" doc="Nom du modele du sensor"/>
+		<arg name="udpport" default="8308" doc="UPD port du webserver du Velodyne VLP16"/>
 
 		<!--  -->	  
 		<include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
 
 		<!-- rosrun velodyne_gps_imu gpsimu_driver -->
-		<node pkg="velodyne_gps_imu" type="gpsimu_driver" name="gpsimu_driver"/>
+		<node pkg="velodyne_gps_imu" type="gpsimu_driver" name="gpsimu_driver">
+			<param name="device_ip" value="$(arg VLP16_NETWORK_SENSOR_IP)"/>
+			<param name="udpport" value="$(arg udpport)"/>
+		</node>
 
 		<!-- Server de DIAGNOSTICS (VLP16) -->
 		<node pkg="velodyne_configuration" type="velodyne_diagnostics_server" name="velodyne_diagnostics_server">
@@ -47,5 +51,4 @@
 			<param name="~baud" value="$(arg baud)" />
 		</node>
 	</group>
-
 </launch>
