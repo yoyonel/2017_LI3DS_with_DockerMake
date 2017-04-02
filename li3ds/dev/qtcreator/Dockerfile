@@ -8,7 +8,7 @@
 #       qt57creator-plugin-ros \
 #       clang-format-3.6 \
 #       dbus
-
+RUN apt-get update
 RUN apt-get install -y qtcreator
 RUN apt-get install -y \
 	clang-format-3.6 \

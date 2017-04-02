@@ -1,46 +1,46 @@
 #!/usr/bin/python
 
-from fsm import FiniteStateMachine, get_graph, State
+from fsm import finitestatemachine, get_graph, state
 
-STATES = ['LISTEN', 'SYN RCVD', 'ESTABLISHED', 'SYN SENT',
-          'FIN WAIT 1', 'FIN WAIT 2', 'TIME WAIT', 'CLOSING', 'CLOSE WAIT',
-          'LAST ACK']
+states = ['listen', 'syn rcvd', 'established', 'syn sent',
+          'fin wait 1', 'fin wait 2', 'time wait', 'closing', 'close wait',
+          'last ack']
 
-tcpip = FiniteStateMachine('TCP IP')
+tcpip = finitestatemachine('tcp ip')
 
-closed = State('CLOSED', initial=True)
+closed = state('closed', initial=true)
 listen, synrcvd, established, synsent, finwait1, finwait2, timewait, \
-closing, closewait, lastack = [State(s) for s in STATES]
+closing, closewait, lastack = [state(s) for s in states]
 
 timewait['(wait)'] = closed
 closed.update({r'passive\nopen': listen,
-               'send SYN': synsent})
+               'send syn': synsent})
 
 synsent.update({r'close /\ntimeout': closed,
-                r'recv SYN,\nsend\nSYN+ACK': synrcvd,
-                r'recv SYN+ACK,\nsend ACK': established})
+                r'recv syn,\nsend\nsyn+ack': synrcvd,
+                r'recv syn+ack,\nsend ack': established})
 
-listen.update({r'recv SYN,\nsend\nSYN+ACK': synrcvd,
-               'send SYN': synsent})
+listen.update({r'recv syn,\nsend\nsyn+ack': synrcvd,
+               'send syn': synsent})
 
-synrcvd.update({'recv ACK': established,
-                'send FIN': finwait1,
-                'recv RST': listen})
+synrcvd.update({'recv ack': established,
+                'send fin': finwait1,
+                'recv rst': listen})
 
-established.update({'send FIN': finwait1,
-                    r'recv FIN,\nsend ACK': closewait})
+established.update({'send fin': finwait1,
+                    r'recv fin,\nsend ack': closewait})
 
-closewait['send FIN'] = lastack
+closewait['send fin'] = lastack
 
-lastack['recv ACK'] = closed
+lastack['recv ack'] = closed
 
-finwait1.update({'send ACK': closing,
-                 'recv ACK': finwait2,
-                 r'recv FIN, ACK\n send ACK': timewait})
+finwait1.update({'send ack': closing,
+                 'recv ack': finwait2,
+                 r'recv fin, ack\n send ack': timewait})
 
-finwait2[r'recv FIN,\nsend ACK'] = timewait
+finwait2[r'recv fin,\nsend ack'] = timewait
 
-closing[r'recv\nACK'] = timewait
+closing[r'recv\nack'] = timewait
 
 graph = get_graph(tcpip)
 graph.draw('tcp.png', prog='dot')
