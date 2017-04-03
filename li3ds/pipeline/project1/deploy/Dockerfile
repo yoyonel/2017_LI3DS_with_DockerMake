@@ -7,7 +7,7 @@ COPY catkin /root/catkin_ws
 
 WORKDIR /root/project
 
-RUN mkdir -p /root/project/records
+RUN mkdir -p /root/project
 
 COPY prototype.launch prototype.launch
 COPY LI3DS.perspective LI3DS.perspective
