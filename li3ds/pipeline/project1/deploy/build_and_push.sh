@@ -11,6 +11,12 @@ echo "[DOCKER] build image for deployement ..."
 docker build \
     -t 172.20.250.99:5000/li3ds/deploy:$SHA_PROJECT \
     --rm --force-rm \
+    --build-arg HTTP_PROXY=$HTTP_PROXY \
+    --build-arg HTTPS_PROXY=$HTTPS_PROXY \
+    --build-arg https_proxy=$https_proxy \
+    --build-arg http_proxy=$http_proxy \
+    --build-arg ftp_proxy=$ftp_proxy \
+    --build-arg FTP_PROXY=$FTP_PROXY \
     .
 
 echo "[DOCKER] Tag images"
