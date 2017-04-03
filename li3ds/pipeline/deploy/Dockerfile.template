@@ -1,6 +1,5 @@
 # On herite de l'image de compilation du projet
-FROM li3ds-prototype:8f16d2bcdf0bdbb6cfec375e34b630176c54df0ac71ea517adb3782be932727c
-
+#FROM li3ds-prototype:$SHA_PROJECT
 ARG DEBIAN_FRONTEND=noninteractive
 
 # PCL 

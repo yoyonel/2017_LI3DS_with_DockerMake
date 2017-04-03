@@ -1,22 +1,2 @@
-# Pour générer un sha du projet
-RUN apt-get install -y 		\
-	tree 					\
-	ros-indigo-rqt-graph
+FROM li3ds-prototype:25298b48d95af532d5a230ae90d5e211d761e9f8a152e4a5229b54be348bb200
 
-USER root
-WORKDIR /root
-
-COPY scripts /root/scripts
-
-# set env !
-ENV ROS_OVERLAY_WS ${HOME}/overlay_ws
-ENV ROS_CATKIN_WS ${HOME}/catkin_ws
-
-RUN mkdir -p ${ROS_OVERLAY_WS} ${ROS_CATKIN_WS}
-
-ENV PATH $PATH:${HOME}/scripts
-
-# COPY docker-entrypoint.sh /usr/local/bin/entrypoint.sh
-# RUN chmod +x /usr/local/bin/entrypoint.sh
-# ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-# CMD ["/bin/bash"]
