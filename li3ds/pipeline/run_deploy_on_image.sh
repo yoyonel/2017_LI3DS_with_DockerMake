@@ -77,6 +77,7 @@ OPTIONS_FOR_TMUXP="
 # $OPTIONS_FOR_ROS_WORKSPACES						\
 # $OPTIONS_FOR_X11								\
 # $OPTIONS_FOR_PROJECT							\
+# $OPTIONS_FOR_TMUXP								\
 docker	run											\
 	-it --rm										\
 	--name li3ds-prototype_deploy					\
@@ -87,7 +88,6 @@ docker	run											\
 	$OPTIONS_FOR_USB								\
 	$OPTIONS_FOR_LASER								\
 	$OPTIONS_FOR_ZSH								\
-	$OPTIONS_FOR_TMUXP								\
 	$PROJECT_IMAGE_TO		 						\
 	bash -c "unset NEWUSER; tmux"
 
