@@ -17,4 +17,16 @@ COPY .tmuxp /root/.tmuxp
 COPY run.sh	run.sh
 RUN chmod +x run.sh
 
+# PCL 
+# - pour pcl_viewer
+# - pour la conversion point_cloud -> pcd [ROS]
+RUN apt-get install ros-indigo-perception-pcl
+
+RUN sudo -EH add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl;	\
+	apt-get update; \
+	apt-get install libpcl-all
+
+COPY convert_bag_to_pcd.sh convert_bag_to_pcd.sh
+RUN chmod +x convert_bag_to_pcd.sh
+
 ENTRYPOINT ["/root/project/run.sh"]
