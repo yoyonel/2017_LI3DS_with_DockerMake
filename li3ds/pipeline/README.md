@@ -51,3 +51,26 @@ root@f363f65746e5:~/catkin_ws# ls /root/catkin_ws/devel/share/ros_arduino/arduin
 lrwxrwxrwx 1 latty latty 72 Mar  2 11:11 /root/catkin_ws/devel/share/ros_arduino/arduino.elf -> /root/catkin_ws/devel/.private/ros_a
 rduino/share/ros_arduino/arduino.elf
 -> à vérifier ...
+
+---
+
+2017-04-03
+
+Deploiement
+-----------
+
+Problème avec le docker daemon pour setter correctement un private registry.
+Pas réussi à configurer le daemon via les fichiers /etc/default/docker et/ou /etc/docker/daemon.json.
+Guillaume a proposé de lancer à la main le daemon docker via le script launch_docker_daemon.sh à la racine du projet:
+more docker_launch_daemon.sh     
+#!/usr/bin/sh
+
+sudo service docker stop
+
+sudo docker daemon \
+    --dns 172.21.2.14 --dns 172.16.2.91 \
+    --insecure-registry=172.20.250.99:5000
+
+Faudra cleaner ce script, car ça expose des addresses IP de l'IGN ... c'est pas top top.
+
+Le laser VLP-16 est configuré sur le laptop toughbook. Faudrait mettre en place un script qui récupère l'IP du launcher du docker pour le placer en setting pour le VLP-16 (et utiliser les serveurs de paramtres pour setter le laser).
