@@ -25,6 +25,9 @@ OPTIONS_FOR_ROS_WORKSPACES=" 								\
 			-v $PATH_TO_CATKIN_WS_VOLUME:/root/catkin_ws 	\
 "
 
+################
+# Project link
+################
 OPTIONS_FOR_PROJECT=" 						\
 			-v $(realpath $1):/root/project \
 			"
@@ -73,12 +76,12 @@ OPTIONS_FOR_TMUXP="
 # Container sur l'image du projet
 # $OPTIONS_FOR_ROS_WORKSPACES						\
 # $OPTIONS_FOR_X11								\
+# $OPTIONS_FOR_PROJECT							\
 docker	run											\
 	-it --rm										\
 	--name li3ds-prototype_deploy					\
 	-v $(realpath scripts):/root/scripts			\
 	$OPTIONS_FOR_X11								\
-	$OPTIONS_FOR_PROJECT							\
 	$OPTIONS_FOR_PROXY								\
 	$OPTIONS_FOR_SSH								\
 	$OPTIONS_FOR_USB								\

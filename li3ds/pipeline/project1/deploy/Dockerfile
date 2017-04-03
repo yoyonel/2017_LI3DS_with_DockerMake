@@ -11,3 +11,8 @@ RUN mkdir -p /root/project
 COPY prototype.launch prototype.launch
 COPY run.sh	run.sh
 COPY LI3DS.perspective LI3DS.perspective
+COPY .tmuxp .tmuxp
+
+RUN chmod +x run.sh
+
+ENTRYPOINT ["/root/project/run.sh"]
