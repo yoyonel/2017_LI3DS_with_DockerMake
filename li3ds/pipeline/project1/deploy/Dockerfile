@@ -7,14 +7,14 @@ COPY catkin /root/catkin_ws
 
 WORKDIR /root/project
 
-RUN mkdir -p /root/project
+RUN mkdir -p /root/project/records
 
 COPY prototype.launch prototype.launch
-COPY run.sh	run.sh
 COPY LI3DS.perspective LI3DS.perspective
 
 COPY .tmuxp /root/.tmuxp
 
+COPY run.sh	run.sh
 RUN chmod +x run.sh
 
 ENTRYPOINT ["/root/project/run.sh"]

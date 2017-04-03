@@ -9,7 +9,7 @@ cp -r ../../../.volumes/pipeline/$SHA_PROJECT/overlay .
 
 echo "[DOCKER] build image for deployement ..."
 docker build \
-    -t 172.20.250.99:5000/li3ds/deploy: \
+    -t 172.20.250.99:5000/li3ds/deploy:$SHA_PROJECT \
     --rm --force-rm \
     .
 
