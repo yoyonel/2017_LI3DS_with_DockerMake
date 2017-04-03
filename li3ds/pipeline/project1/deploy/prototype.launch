@@ -1,0 +1,54 @@
+<!-- -*- mode: XML -*- -->
+<!-- start 
+     $Id$
+  -->
+
+<launch>
+	<!-- LASER - VLP16 -->
+	<group ns="Laser">
+		<!-- ros_args.launch -->
+		<arg name="VLP16_NETWORK_SENSOR_IP" default="172.20.0.191" doc="IP du sensor Velodyne VLP16"/>
+		<arg name="model" default="VLP16" doc="Nom du modele du sensor"/>
+		<arg name="udpport" default="8308" doc="UPD port du webserver du Velodyne VLP16"/>
+
+		<!--  -->	  
+		<include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
+
+		<!-- rosrun velodyne_gps_imu gpsimu_driver -->
+		<node pkg="velodyne_gps_imu" type="gpsimu_driver" name="gpsimu_driver">
+			<param name="device_ip" value="$(arg VLP16_NETWORK_SENSOR_IP)"/>
+			<param name="udpport" value="$(arg udpport)"/>
+		</node>
+
+		<!-- Server de DIAGNOSTICS (VLP16) -->
+		<node pkg="velodyne_configuration" type="velodyne_diagnostics_server" name="velodyne_diagnostics_server">
+			<param name="VLP16_NETWORK_SENSOR_IP" value="$(arg VLP16_NETWORK_SENSOR_IP)"/>
+		</node>
+
+		<!-- Server de SETTINGS (VLP16) -->
+		<node pkg="velodyne_configuration" type="velodyne_settings_server" name="velodyne_settings_server">
+  			<param name="VLP16_NETWORK_SENSOR_IP" value="$(arg VLP16_NETWORK_SENSOR_IP)"/>
+  		</node>
+
+  		<!-- Server de STATUS (VLP16) déjà lancé/utilisé par VLP16_points.launch -->  	
+	</group>
+
+  	<!-- INS - SBG ELLIPSE-N -->
+  	<group ns="INS">
+		<include file="$(find sbg_driver)/launch/ELLIPSE_N.launch">
+		</include>
+	</group>
+
+	<!-- ARDUINO -->
+	<!-- rosserial_python serial_node.py /dev/ttyACM0 _baud:=115200 -->
+	<group ns="Arduino">
+		<arg name="port" default="/dev/ttyACM0" />
+		<arg name="baud" default="57600" />
+		<!-- url: http://answers.ros.org/question/55232/rosrun-rosserial_python-serial_nodepy/ -->
+		<!-- url http://wiki.ros.org/rosserial_python -->
+		<node pkg="rosserial_python" type="serial_node.py" name="serial_node" respawn="true">
+			<param name="~port" value="$(arg port)" />
+			<param name="~baud" value="$(arg baud)" />
+		</node>
+	</group>
+</launch>

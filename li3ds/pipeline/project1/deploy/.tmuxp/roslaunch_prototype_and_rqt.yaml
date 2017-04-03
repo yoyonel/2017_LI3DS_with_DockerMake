@@ -1,0 +1,21 @@
+session_name: LI3DS-deploy
+
+environment:
+  EDITOR: /usr/bin/vim
+  HOME: /root/
+
+windows:
+  - window_name: RosLaunch Prototype
+    focus: true
+    shell_command_before:
+      - source ~/catkin_ws/devel/setup.zsh
+      - cd ~/project
+    panes:
+      - roslaunch prototype.launch
+
+  - window_name: RQT
+    shell_command_before:
+      - source ~/catkin_ws/devel/setup.zsh
+      - cd ~/catkin_ws
+    panes:
+      - rqt --perspective-file /root/project/LI3DS.perspective
