@@ -49,3 +49,4 @@ windows:
       - cd ~/project
     panes:
       - blank
+      - cd records
