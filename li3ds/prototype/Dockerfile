@@ -45,6 +45,8 @@ ENV ROS_CATKIN_WS ${HOME}/catkin_ws
 COPY scripts_static scripts
 RUN chmod +x scripts/*.sh
 # RUN mkdir scripts
+# url: http://stackoverflow.com/questions/27093612/in-a-dockerfile-how-to-update-path-environment-variable
+ENV PATH="/root/scripts:${PATH}"
 
 # Pre-create directories for workspaces (Overlay & Catkin)
 RUN mkdir -p \

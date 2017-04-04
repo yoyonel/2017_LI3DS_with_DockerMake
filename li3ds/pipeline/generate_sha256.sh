@@ -33,12 +33,12 @@ echo_i "Generate SHA256 ..."
 
 (env | grep proxy) > env.list
 
+# -e NEWUSER=$USER 		\
 docker	run 	\
 		-it --rm	\
-		--name li3ds-prototype_step1	\
+		--name li3ds-prototype_generate_sha256	\
 		-v $(realpath scripts):/root/scripts \
 		-v $(realpath $1):/root/project/ \
-		-e NEWUSER=$USER 		\
 		--env-file env.list 	\
 		li3ds-prototype_docker 	\
 		generate_sha256.sh
