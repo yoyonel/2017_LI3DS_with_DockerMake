@@ -1,9 +1,9 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 #SHA_PROJECT=8f16d2bcdf0bdbb6cfec375e34b630176c54df0ac71ea517adb3782be932727c
 SHA_PROJECT=$(cat $1/sha256.txt)
 
-DOCKER_IP_REGISTRY=172.20.250.99
+DOCKER_IP_REGISTRY=172.20.250.99:5000
 
 echo "[COPY] Catkin workspace ..."
 cp -r $PATH_TO_CATKIN_WS_VOLUME .

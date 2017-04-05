@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 PATH_TO_PROJECT=$(realpath $1)
 
