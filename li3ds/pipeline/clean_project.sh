@@ -15,7 +15,7 @@ docker rmi -f $PROJECT_IMAGE_TO
 # delete project files (except .rosinstall)
 echo_i "Delete project files: ${GREEN}$1"
 echo_i "Remove directory: ${GREEN}$1/overlay_ws"
-rm -r $1/overlay_ws
+rm -rf $1/overlay_ws
 echo_i "Remove file: ${GREEN}$1/sha256.txt"
 rm $1/sha256.txt
 
