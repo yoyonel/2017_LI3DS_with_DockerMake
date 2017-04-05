@@ -50,5 +50,9 @@
 			<param name="~port" value="$(arg port)" />
 			<param name="~baud" value="$(arg baud)" />
 		</node>
+
+		<!--  -->	  
+		<include file="$(find arduino_msgs)/launch/server_settings.launch"/>
+
 	</group>
 </launch>
