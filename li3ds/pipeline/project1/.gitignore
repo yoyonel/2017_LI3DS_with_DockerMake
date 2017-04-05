@@ -1,3 +1,9 @@
+# Mercurial
+.hg
+
+# ROS: tools for rosbag
+bagedit
+
 #
 build/
 
