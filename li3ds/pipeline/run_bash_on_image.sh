@@ -85,6 +85,31 @@ OPTIONS_FOR_TMUXP="
 			-v $(realpath $1/.tmuxp):/root/.tmuxp
 "
 
+#hostname="$(hostname -i)"
+# hostname="MAC1201W008-LINUX"
+# OPTIONS_FOR_SOUND="
+#     -e PULSE_SERVER=tcp:$hostname:4713         \
+#     -e PULSE_COOKIE=/run/pulse/cookie               \
+#     -v cookie:/run/pulse/cookie                     \
+# "
+function EPHYMERAL_PORT(){
+    LPORT=32768;
+    UPORT=60999;
+    while true; do
+        MPORT=$[$LPORT + ($RANDOM % $UPORT)];
+        (echo "" >/dev/tcp/127.0.0.1/${MPORT}) >/dev/null 2>&1
+        if [ $? -ne 0 ]; then
+            echo $MPORT;
+            return 0;
+        fi
+    done
+}
+PULSE_PORT=EPHYMERAL_PORT
+PULSE_MODULE_ID=$(pactl load-module module-native-protocol-tcp port=$PULSE_PORT auth-ip-acl=172.17.42.1/16)
+OPTIONS_FOR_SOUND="
+	-e PULSE_SERVER=tcp:172.17.42.1:$PULSE_PORT
+"
+
 # Container sur l'image du projet
 docker	run											\
 	-it --rm										\
@@ -103,6 +128,7 @@ docker	run											\
 	$OPTIONS_FOR_LASER								\
 	$OPTIONS_FOR_ZSH								\
 	$OPTIONS_FOR_TMUXP								\
+    $OPTIONS_FOR_SOUND                              \
 	$PROJECT_IMAGE_TO		 						\
 	bash -c "unset NEWUSER; tmux"
 
