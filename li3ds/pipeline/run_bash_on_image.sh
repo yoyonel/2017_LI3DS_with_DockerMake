@@ -7,6 +7,7 @@ echo_i "Build project from: ${GREEN}$PROJECT_IMAGE_TO"
 xhost +local:root
 
 OPTIONS_FOR_DOCKER="
+            --memory=800m                                   \
 			-v /var/run/docker.sock:/var/run/docker.sock	\
 "
 

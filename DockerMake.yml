@@ -2,7 +2,8 @@
 
 li3ds-ros:
   # FROM: ros:indigo-ros-core
-  FROM: ros:indigo-ros-base
+  #FROM: ros:indigo-ros-base
+  FROM: pablogn/rpi-ros-core-indigo:10
   build_directory: li3ds/ros
   
 li3ds-base:
@@ -57,7 +58,7 @@ li3ds-tools_sublimetext3:
 # - https://bugzilla.redhat.com/show_bug.cgi?id=1290691
 li3ds-tools:
   requires:
-    - li3ds-tools_sublimetext3
+    # - li3ds-tools_sublimetext3
     - li3ds-tools_vim
     - li3ds-tools_monitor
     - li3ds-tools_shell-zsh
@@ -78,7 +79,7 @@ li3ds-dev:
   requires:
     - li3ds-base
     - li3ds-tools
-    - li3ds-dev_qtcreator
+      #  - li3ds-dev_qtcreator
     - li3ds-dev_pycharm
   build_directory: li3ds/dev
 
