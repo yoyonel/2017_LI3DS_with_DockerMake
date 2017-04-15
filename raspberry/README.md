@@ -377,3 +377,17 @@ En particulier le répertoire target pour la copie/transfert des archives (dans 
 export STEP6_RPI_IP=pi@192.168.0.28
 export STEP6_RPI_DEPLOY_PATH=/home/pi/Prog/2017_LI3DS_with_DockerMake/li3ds/pipeline/project1/build_crosscompile
 ```
+
+# Exploitation de la crosscompilation
+```bash
+┏ ✓    atty@debian   ~/Prog/__IGN__/2017…Make/li3ds/pipeline/project1     pi3              0.13   1.02G    12:21:14  
+┗ git diff-tree --no-commit-id --name-only -r 189edcf 
+li3ds/pipeline/project1/.gitignore
+li3ds/pipeline/project1/VLP16_points.test.launch
+li3ds/pipeline/project1/build_crosscompile/.gitignore
+li3ds/pipeline/project1/build_crosscompile/sysroot-relativelinks.py
+li3ds/pipeline/project1/build_crosscompile/untar_workspaces.sh
+li3ds/pipeline/project1/prototype.test.launch
+li3ds/pipeline/project1/vlp16.pcap
+li3ds/pipeline/run_bash_on_image_with_build_crosscompile.sh
+```
