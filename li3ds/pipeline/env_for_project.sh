@@ -14,9 +14,10 @@ if [ -d $PROJECT_NAME ]; then
 	if [ ! -d ../.volumes/pipeline/ ]; then
 		mkdir -p ../.volumes/pipeline/
 	fi
-	export PATH_TO_VOLUME=$(realpath ../.volumes/pipeline/)
+	
+    export PATH_TO_VOLUME=$(realpath ../.volumes/pipeline/)
 
-	export PROJECT_IMAGE_TO_BASE="li3ds-prototype"
+    export PROJECT_IMAGE_TO_BASE="li3ds-prototype"
 
 	if [ -f $PROJECT_NAME/sha256.txt ]; then
 		export PROJECT_SHA256=$(cat $PROJECT_NAME/sha256.txt)
@@ -25,7 +26,7 @@ if [ -d $PROJECT_NAME ]; then
 		#
 		export PATH_TO_OVERLAY_WS_VOLUME=$PATH_TO_VOLUME/$PROJECT_SHA256/overlay
 		export PATH_TO_CATKIN_WS_VOLUME=$PATH_TO_VOLUME/$PROJECT_SHA256/catkin
-		
+       
 		export PROJECT_IMAGE_TO="$PROJECT_IMAGE_TO_BASE:$PROJECT_SHA256"
 	else
 		echo_i "Can't find ${RED}$PROJECT_NAME/sha256.txt"

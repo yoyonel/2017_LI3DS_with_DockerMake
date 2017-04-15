@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+source env.sh
+
+docker tag $STEP2_COMMIT_IMAGE_NAME $STEP4_REGISTRY_IP/$STEP2_COMMIT_IMAGE_NAME
+
+docker push "$STEP4_REGISTRY_IP/$STEP2_COMMIT_IMAGE_NAME"

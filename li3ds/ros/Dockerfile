@@ -1,3 +1,5 @@
+USER root
+
 ENV DEBIAN_FRONTEND=noninteractive
 
 ADD apt.conf /etc/apt/apt.conf

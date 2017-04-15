@@ -67,3 +67,5 @@ RUN mkdir -p \
 # RUN chmod +x /usr/local/bin/entrypoint.sh
 # ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 # CMD ["/bin/bash"]
+
+RUN cp /home/pi/rep.sh /root/rep.sh
