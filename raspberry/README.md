@@ -378,7 +378,9 @@ export STEP6_RPI_IP=pi@192.168.0.28
 export STEP6_RPI_DEPLOY_PATH=/home/pi/Prog/2017_LI3DS_with_DockerMake/li3ds/pipeline/project1/build_crosscompile
 ```
 
-# Exploitation de la crosscompilation
+# Exploitation de la cross-compilation
+
+Commit correspondant à cette exploitation:
 ```bash
 ┏ ✓    atty@debian   ~/Prog/__IGN__/2017…Make/li3ds/pipeline/project1     pi3              0.13   1.02G    12:21:14  
 ┗ git diff-tree --no-commit-id --name-only -r 189edcf 
@@ -390,4 +392,49 @@ li3ds/pipeline/project1/build_crosscompile/untar_workspaces.sh
 li3ds/pipeline/project1/prototype.test.launch
 li3ds/pipeline/project1/vlp16.pcap
 li3ds/pipeline/run_bash_on_image_with_build_crosscompile.sh
+```
+
+## li3ds/pipeline/project1/build_crosscompile/
+
+Répertoire du projet dédié pour tester la cross-compilation.
+
+- .gitignore:
+```bash
+┏ ↵ 130    latty@debian   ~/Prog/2017…Make/li3ds/pipeline/project1/build_crosscompile  0.94   3.38G    98%   15:28:20  
+┗ more .gitignore        
+#
+*.tar.gz
+
+#
+catkin_ws
+overlay_ws
+```
+On ignore les archives tar.gz et leurs décompression (catkin_ws et overlay_ws).
+
+- untar_workspaces.sh
+```bash
+bash
+┏ ✓    latty@debian   ~/Prog/2017…Make/li3ds/pipeline/project1/build_crosscompile    0.95   3.56G    98%   15:30:47  
+┗ more untar_workspaces.sh     
+tar xzvf catkin_ws.tar.gz; tar xzvf overlay_ws.tar.gz
+```
+
+Decompression des archives, pour avoir accès aux répertoires catkin_ws et overlay_ws.
+On utilisera par la suite ces répertoires pour mounter les workspaces dans le container d'exploitation de LI3DS.
+
+## li3ds/pipeline/run_bash_on_image_with_build_crosscompile.sh
+
+Script permettant de lancer le container d'exploitation/running LI3DS avec les workspaces issus de la cross-compilation pour raspberry.
+A noter que les volumes mountés en particulier catkin_ws contient dans des binaires/libs pour architectures armhf (et non pas x86). On peut lancer le container avec ce montage de volumes, par contre on ne pourra pas lancer les packages ROS pour LI3DS.
+
+Ce script de lancement est très proche du script `run_bash_on_image.sh` mise à part les mountages de volumes:
+```bash
+...
+# ROS/CATKIN WORKSPACES
+
+OPTIONS_FOR_ROS_WORKSPACES=" 								\
+            -v $(realpath project1/build_crosscompile/overlay_ws):/root/overlay_ws 	\
+            -v $(realpath project1/build_crosscompile/catkin_ws):/root/catkin_ws 	\
+"
+...
 ```
