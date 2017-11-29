@@ -1,98 +1,97 @@
 # FROM: ubuntu:trusty  # same FROM from 'indigo-ros-core' image
 
-li3ds-ros:
-  # FROM: ros:indigo-ros-core
-  FROM: ros:indigo-ros-base
-  build_directory: li3ds/ros
+project-ros:
+  FROM: ros:kinetic-ros-base
+  build_directory: project/ros
   
-li3ds-base:
-  build_directory: li3ds/base
+project-base:
+  build_directory: project/base
   requires:
-    - li3ds-ros
+    - project-ros
 
 # urls:
 # - https://github.com/docker/docker/issues/5383
-li3ds-tools_base:
-  build_directory: li3ds/tools/base
+project-tools_base:
+  build_directory: project/tools/base
   requires:
-    - li3ds-base
+    - project-base
     
-li3ds-tools_shell:
+project-tools_shell:
   requires:
-    - li3ds-tools_base
-  build_directory: li3ds/tools/shell
+    - project-tools_base
+  build_directory: project/tools/shell
 
-li3ds-tools_shell-zsh:
+project-tools_shell-zsh:
   requires:
-    - li3ds-tools_shell
-  build_directory: li3ds/tools/shell/zsh
+    - project-tools_shell
+  build_directory: project/tools/shell/zsh
 
-li3ds-tools_shell-tmux:
+project-tools_shell-tmux:
   requires:
-    - li3ds-tools_shell
-  build_directory: li3ds/tools/shell/tmux
+    - project-tools_shell
+  build_directory: project/tools/shell/tmux
 
 # version build
-li3ds-tools_shell-tmux-build:
+project-tools_shell-tmux-build:
   requires:
-    - li3ds-tools_shell
-  build_directory: li3ds/tools/shell/tmux/build
+    - project-tools_shell
+  build_directory: project/tools/shell/tmux/build
 
-li3ds-tools_monitor:
+project-tools_monitor:
   requires:
-    - li3ds-tools_shell
-  build_directory: li3ds/tools/monitor
+    - project-tools_shell
+  build_directory: project/tools/monitor
 
-li3ds-tools_vim:
+project-tools_vim:
   requires:
-    - li3ds-tools_shell
-  build_directory: li3ds/tools/vim
+    - project-tools_shell
+  build_directory: project/tools/vim
     
-li3ds-tools_sublimetext3:
+project-tools_sublimetext3:
   requires:
-    - li3ds-tools_shell
-  build_directory: li3ds/tools/sublimetext3
+    - project-tools_shell
+  build_directory: project/tools/sublimetext3
 
 # urls:
 # - https://bugzilla.redhat.com/show_bug.cgi?id=1290691
-li3ds-tools:
+project-tools:
   requires:
-    - li3ds-tools_sublimetext3
-    - li3ds-tools_vim
-    - li3ds-tools_monitor
-    - li3ds-tools_shell-zsh
-    - li3ds-tools_shell-tmux
-  build_directory: li3ds/tools
+    - project-tools_sublimetext3
+    - project-tools_vim
+    - project-tools_monitor
+    - project-tools_shell-zsh
+    - project-tools_shell-tmux
+  build_directory: project/tools
 
-li3ds-dev_qtcreator:
+project-dev_qtcreator:
   requires:
-    - li3ds-base
-  build_directory: li3ds/dev/qtcreator
+    - project-base
+  build_directory: project/dev/qtcreator
 
-li3ds-dev_pycharm:
+project-dev_pycharm:
   requires:
-    - li3ds-base
-  build_directory: li3ds/dev/pycharm
+    - project-base
+  build_directory: project/dev/pycharm
 
-li3ds-dev:
+project-dev:
   requires:
-    - li3ds-base
-    - li3ds-tools
-    - li3ds-dev_qtcreator
-    - li3ds-dev_pycharm
-  build_directory: li3ds/dev
+    - project-base
+    - project-tools
+    - project-dev_qtcreator
+    - project-dev_pycharm
+  build_directory: project/dev
 
-li3ds-prototype:
+project-prototype:
   requires:
-    - li3ds-dev
-  build_directory: li3ds/prototype
+    - project-dev
+  build_directory: project/prototype
 
-li3ds-prototype_docker:
+project-prototype_docker:
   requires:
-    - li3ds-prototype
-  build_directory: li3ds/pipeline
-
-li3ds-prototype_deploy:
+    - project-prototype
+  build_directory: project/pipeline
+  
+project-prototype_deploy:
   requires:
-    - li3ds-base
-    - li3ds-tools
+    - project-base
+    - project-tools

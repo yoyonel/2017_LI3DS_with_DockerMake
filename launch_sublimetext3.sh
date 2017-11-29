@@ -12,4 +12,4 @@ docker run 	-d \
 			-v /tmp/.X11-unix:/tmp/.X11-unix \
 			-v $PWD:/home/$USER/development \
 			-v $HOME/.config/sublime-text-3/:/home/$USER/.config/sublime-text-3 \
-			li3ds-tools_sublimetext3
+			project-tools_sublimetext3

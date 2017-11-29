@@ -32,6 +32,7 @@ RUN echo "install SublimeText3" \
   # && apt-get -y install \
 RUN apt-get -y install \
   language-pack-en-base
+RUN apt-get install sudo
 RUN sudo apt-get purge -y locales
 RUN sudo apt-get install -y locales 
   # \
